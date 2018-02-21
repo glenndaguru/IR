@@ -44,8 +44,19 @@ def execute_ssh_login(user,password,ip):
 		if index == 0:
 			ssh_handle.sendline("yes")
 			ssh_handle.sendline(password)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("SSH sudo Login Succesful ")
+			
 		if index == 1:
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("SSH sudo Login Succesful ")
 	
 	except Exception, e:
@@ -70,11 +81,21 @@ def execute_ssh_sudo(user,password,ip):
 			ssh_handle.sendline(password)
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("SSH sudo Login Succesful ")
 			
 		if index == 1:
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("SSH sudo Login Succesful ")
 		
 	except Exception, e:
@@ -104,12 +125,22 @@ def execute_ssh_create_file(user,password,ip):
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
 			ssh_handle.sendline(file_command)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("File Succesfully Created")
 			
 		if index == 1:
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
 			ssh_handle.sendline(file_command)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("File Succesfully Created")
 	
 	except Exception, e:
@@ -124,7 +155,7 @@ def execute_ssh_execute_file(user,password,ip):
 	'''
 	try:
 		print("File Being Executed")
-		file_command = "bash exe.sh"
+		file_command = "{} {}".format("bash","exe.sh")
 		ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
 		ssh_handle.login(ip, user, password)
 		index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
@@ -135,12 +166,22 @@ def execute_ssh_execute_file(user,password,ip):
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
 			ssh_handle.sendline(file_command)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("File Succesfully Executed")
 			
 		if index == 1:
 			ssh_handle.sendline('sudo -s')
 			ssh_handle.sendline(password)
 			ssh_handle.sendline(file_command)
+			ssh_handle.expect("#")
+			ssh_handle.sendline("exit")
+			ssh_handle.expect("$")
+			ssh_handle.sendline("logout")
+			
 			print("File Succesfully Executed")
 		
 	except Exception, e:
