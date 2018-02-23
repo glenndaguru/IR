@@ -31,23 +31,35 @@ class attackerClass(object):
 	@staticmethod
 	def generate_random_request(service_array):
 		'''
-		Method generates random
+		Method gets randomly generated data
 		'''
-		service = service_array["Service"]
-		ip = service_array["IP"]
-		user = service_array["User"] 
-		password = service_array["Password"]
-		method = service_array["Method"]
+		try:
+			service = service_array["Service"]
+			ip = service_array["IP"]
+			user = service_array["User"] 
+			password = service_array["Password"]
+			method = service_array["Method"]
+
+			print("Executing :"+ method)
+			attackerClass.call_class_method(method,ip,user,password)
 		
-		print("Executing :"+ method)
-		attackerClass.call_class_method(method,ip,user,password)
+		except Exception as e:
+			print str(e)
+			log.exception(e)
 		
 	@staticmethod	
 	def call_class_method(method,ip,user,password):
-		values = {"IP":ip,"User":user,"Pass":password}
-		the_method = getattr(attackerClass,method)(values)
-		#print(inspect.getargspec(method))
-		print("Metohd: "+method+" Executed")
+		'''
+		Method passes arguments to class methods and executes the called method 
+		'''
+		try:
+			values = {"IP":ip,"User":user,"Pass":password}
+			the_method = getattr(attackerClass,method)(values)
+			print("Metohd: "+method+" Executed")
+	
+		except Exception as e:
+			print str(e)
+			log.exception(e)
 		
 	
 	@staticmethod	
@@ -337,7 +349,6 @@ class attackerClass(object):
 		'''
 		SSH directly into the machine using parameters received
 		'''
-		
 		ip = args["IP"]
 		user = args["User"]
 		password = args["Pass"]
