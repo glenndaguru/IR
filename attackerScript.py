@@ -5,6 +5,7 @@ import time
 from pexpect import pxssh
 import logging as log
 import inspect
+import json
 
 log.basicConfig()
 
@@ -32,19 +33,34 @@ class attackerClass(object):
 	def generate_random_request(service_array):
 		'''
 		Method gets randomly generated data
+		Iterates through data
+		Compares current value to next value inside the items
+		If ip and service and method are the same nothing is executed
+		Else call_class_method is executed
 		'''
-		try:
-			service = service_array["Service"]
-			ip = service_array["IP"]
-			user = service_array["User"] 
-			password = service_array["Password"]
-			method = service_array["Method"]
-
-			print("Executing :"+ method)
-			attackerClass.call_class_method(method,ip,user,password)
-		
+		try: 
+			for key, val in service_array.items():
+				current_ip = val[0].get("IP")
+				current_method = val[0].get("Method")
+				current_service = val[0].get("Service") 
+				current_user = val[0].get("User") 
+				current_pass = val[0].get("Password") 
+				
+				for nextElement in range(key+1,len(service_array)):
+					next_ip = service_array[nextElement][0]["IP"]
+					next_method = service_array[nextElement][0]["Method"]
+					next_service = service_array[nextElement][0]["Service"]
+					
+					if current_ip == next_ip and current_service == next_service and current_method == next_method:
+						print("Repeating Method: {} On Server: {} ".format(current_method,current_ip))
+						break
+					elif current_ip == next_ip and current_service == next_service and current_method != next_method:
+						print("Executing: {} On Server: {} \n".format(current_method,current_ip))
+						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+						break			
+								
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 		
 	@staticmethod	
@@ -55,15 +71,16 @@ class attackerClass(object):
 		try:
 			values = {"IP":ip,"User":user,"Pass":password}
 			the_method = getattr(attackerClass,method)(values)
-			print("Metohd: "+method+" Executed")
-	
+			print()
+			print("Method: "+method+" Executed")
+			
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 		
 	
 	@staticmethod	
-	def hydra_spawn(*args): 
+	def hydra_spawn(args): 
 		'''
 		Start Hydra and find username and password for IP address
 		If username and password found kill hydra 
@@ -79,7 +96,7 @@ class attackerClass(object):
 			attackerClass.kill_hydra()
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 
 		except pexpect.EOF:
@@ -90,7 +107,7 @@ class attackerClass(object):
 	"===================================================================FTP METHODS========================================================================="		
 	#Anonymous User Methods
 	@staticmethod
-	def execute_ftp_login_anon_user(args):#ip,user):
+	def execute_ftp_login_anon_user(args):
 		'''
 		FTP directly into the machine using parameters received
 		'''
@@ -110,7 +127,7 @@ class attackerClass(object):
 			print("Anonymous Login Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 			
 	@staticmethod
@@ -136,7 +153,7 @@ class attackerClass(object):
 			print("Anonymous File Creation Successfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 
 	@staticmethod
@@ -164,7 +181,7 @@ class attackerClass(object):
 			print("Anonymous File Download Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 
 	#Normal User Methods	
@@ -191,7 +208,7 @@ class attackerClass(object):
 			print("Login Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 
 	@staticmethod
 	def execute_ftp_put_user_file(args):		
@@ -221,7 +238,7 @@ class attackerClass(object):
 			print("File Creation Successfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 
 	@staticmethod
@@ -253,7 +270,7 @@ class attackerClass(object):
 			print("File Download Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print (str(e))
 			log.exception(e)
 	"===================================================================FTP METHODS========================================================================="
 	
@@ -269,7 +286,7 @@ class attackerClass(object):
 		password = args["Pass"]
 		
 		try:
-			print("SSH sudo Login Being Executed")
+			print("SSH Login Being Executed")
 			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
 			ssh_handle.login(ip, user, password)
 			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
@@ -280,24 +297,24 @@ class attackerClass(object):
 				ssh_handle.expect("#")
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.sendline("exit")
+				#ssh_handle.logout()
 
-				print("SSH sudo Login Succesful ")
+				print("SSH Login Succesful ")
 
 			if index == 1:
-				ssh_handle.expect("#")
-				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.sendline("exit")
+				#ssh_handle.logout()
 
-				print("SSH sudo Login Succesful ")
+				print("SSH Login Succesful ")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print (str(e))
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
-			print str(e)
+			print (str(e))
 
 	@staticmethod
 	def execute_ssh_sudo(args):
@@ -336,12 +353,12 @@ class attackerClass(object):
 
 				print("SSH sudo Login Succesful ")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print (str(e))
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
-			print str(e)
+			print (str(e))
 
 
 	@staticmethod
@@ -371,7 +388,7 @@ class attackerClass(object):
 				ssh_handle.expect("#")
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.logout()
 
 				print("File Succesfully Created")
 
@@ -382,18 +399,18 @@ class attackerClass(object):
 				ssh_handle.expect("#")
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.logout()
 
 				print("File Succesfully Created")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print (str(e))
 
 		except pxssh.ExceptionPxssh as e:
-			print str(e)
+			print (str(e))
 
 	@staticmethod
-	def execute_ssh_execute_file(iargs):
+	def execute_ssh_execute_file(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
@@ -417,7 +434,7 @@ class attackerClass(object):
 				ssh_handle.expect("#")
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.logout()
 
 				print("File Succesfully Executed")
 
@@ -428,18 +445,56 @@ class attackerClass(object):
 				ssh_handle.expect("#")
 				ssh_handle.sendline("exit")
 				ssh_handle.expect("$")
-				ssh_handle.sendline("logout")
+				ssh_handle.logout()
 
 				print("File Succesfully Executed")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print (str(e))
 
 		except pxssh.ExceptionPxssh as e:
-			print str(e)
+			print (str(e))
 	"===================================================================SSH METHODS========================================================================="
 
 if __name__ == "__main__":
 	object = attackerClass()
-	the_array = {"Service":"SSH","IP":"10.0.5.37","User":"ubuntu","Password":"ubuntu","Method":"execute_ssh_create_file"}
+	the_array = {
+	0: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_create_file"
+	}],
+	1: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_create_file"
+	}],
+	2: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_sudo"
+	}],
+	3: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_login"
+	}],
+	4: [{
+		"Service": "SSH",
+		"IP": "10.0.5.37",
+		"User": "ubuntu",
+		"Password": "ubuntu",
+		"Method": "execute_ssh_create_file"
+	}]
+	
+}
+	
 	object.generate_random_request(the_array)
