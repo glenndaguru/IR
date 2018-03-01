@@ -5,6 +5,7 @@ import time
 from pexpect import pxssh
 import logging as log
 import inspect
+from DataAccess import attacker
 
 log.basicConfig()
 
@@ -44,7 +45,7 @@ class attackerClass(object):
 			attackerClass.call_class_method(method,ip,user,password)
 		
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 		
 	@staticmethod	
@@ -58,7 +59,7 @@ class attackerClass(object):
 			print("Metohd: "+method+" Executed")
 	
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 		
 	
@@ -79,7 +80,7 @@ class attackerClass(object):
 			attackerClass.kill_hydra()
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 
 		except pexpect.EOF:
@@ -110,7 +111,7 @@ class attackerClass(object):
 			print("Anonymous Login Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 			
 	@staticmethod
@@ -136,7 +137,7 @@ class attackerClass(object):
 			print("Anonymous File Creation Successfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 
 	@staticmethod
@@ -164,7 +165,7 @@ class attackerClass(object):
 			print("Anonymous File Download Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 
 	#Normal User Methods	
@@ -191,7 +192,7 @@ class attackerClass(object):
 			print("Login Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 
 	@staticmethod
 	def execute_ftp_put_user_file(args):		
@@ -221,7 +222,7 @@ class attackerClass(object):
 			print("File Creation Successfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 
 	@staticmethod
@@ -253,7 +254,7 @@ class attackerClass(object):
 			print("File Download Succesfully Executed")
 
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			log.exception(e)
 	"===================================================================FTP METHODS========================================================================="
 	
@@ -292,12 +293,12 @@ class attackerClass(object):
 
 				print("SSH sudo Login Succesful ")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print(str(e))
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
-			print str(e)
+			print(str(e))
 
 	@staticmethod
 	def execute_ssh_sudo(args):
@@ -336,12 +337,12 @@ class attackerClass(object):
 
 				print("SSH sudo Login Succesful ")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print((str(e)))
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
-			print str(e)
+			print((str(e)))
 
 
 	@staticmethod
@@ -386,14 +387,14 @@ class attackerClass(object):
 
 				print("File Succesfully Created")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print(str(e))
 
 		except pxssh.ExceptionPxssh as e:
-			print str(e)
+			print(str(e))
 
 	@staticmethod
-	def execute_ssh_execute_file(iargs):
+	def execute_ssh_execute_file(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
@@ -432,14 +433,27 @@ class attackerClass(object):
 
 				print("File Succesfully Executed")
 
-		except Exception, e:
-			print str(e)
+		except Exception as e:
+			print(str(e))
 
 		except pxssh.ExceptionPxssh as e:
-			print str(e)
+			print(str(e))
 	"===================================================================SSH METHODS========================================================================="
 
 if __name__ == "__main__":
 	object = attackerClass()
-	the_array = {"Service":"SSH","IP":"10.0.5.37","User":"ubuntu","Password":"ubuntu","Method":"execute_ssh_create_file"}
+	data=attacker()
+	data.get_action()
+
+	service=data.attack_details['service']
+	servers=data.attack_details['servers']
+	action=data.attack_details['action']
+
+	print(service)
+	print(servers)
+	print(action)
+
+	# the_array = {"Service":"SSH","IP":"10.0.5.37","User":"ubuntu","Password":"ubuntu","Method":"execute_ssh_create_file"}
 	object.generate_random_request(the_array)
+
+
