@@ -1,0 +1,890 @@
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f88f0930dd8>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'alex): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'alex): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 4786
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 188, in execute_ftp_get_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f88f0930dd8>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'alex): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'alex): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 4786
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'dict' object has no attribute 'key'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for values in service_array.key():
+AttributeError: 'dict' object has no attribute 'key'
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not iterable
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for values,x in service_array:
+TypeError: 'int' object is not iterable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not subscriptable
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    print(values,x[1])
+TypeError: 'int' object is not subscriptable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not subscriptable
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    print(values,x["IP"])
+TypeError: 'int' object is not subscriptable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not subscriptable
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    print(values,x[0]["IP"])
+TypeError: 'int' object is not subscriptable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not subscriptable
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    print(values[0][0])
+TypeError: 'int' object is not subscriptable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:'int' object is not subscriptable
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    print(values[0]["IP"])
+TypeError: 'int' object is not subscriptable
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 541, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 541, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 541, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 538, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions['method']}]
+IndexError: list index out of range
+ERROR:root:object of type 'function' has no len()
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    print(len(service_array))
+TypeError: object of type 'function' has no len()
+ERROR:root:'function' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 46, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'function' object has no attribute 'items'
+ERROR:root:'function' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'function' object has no attribute 'items'
+ERROR:root:'function' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'function' object has no attribute 'items'
+ERROR:root:'function' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'function' object has no attribute 'items'
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:'NoneType' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'NoneType' object has no attribute 'items'
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:'NoneType' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'NoneType' object has no attribute 'items'
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 540, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "attackerScript.py", line 541, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 541, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 536, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:object of type 'int' has no len()
+Traceback (most recent call last):
+  File "attackerScript.py", line 523, in get_data
+    count=len(server_count)
+TypeError: object of type 'int' has no len()
+ERROR:root:type object 'attacker' has no attribute 'servers'
+Traceback (most recent call last):
+  File "attackerScript.py", line 523, in get_data
+    count=len(attacker.servers)
+AttributeError: type object 'attacker' has no attribute 'servers'
+ERROR:root:type object 'attacker' has no attribute 'servers'
+Traceback (most recent call last):
+  File "attackerScript.py", line 524, in get_data
+    count=len(attacker.servers)
+AttributeError: type object 'attacker' has no attribute 'servers'
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:range() arg 3 must not be zero
+Traceback (most recent call last):
+  File "attackerScript.py", line 524, in get_data
+    for i in list(range(0,server_count,0)):
+ValueError: range() arg 3 must not be zero
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:(2014, 'Command Out of Sync')
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 81, in get_servers
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 991, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1025, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 82, in get_servers
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 762, in _read_ok_packet
+    raise err.OperationalError(2014, "Command Out of Sync")
+pymysql.err.OperationalError: (2014, 'Command Out of Sync')
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 179, in get_service
+    self.servers=self.data.get_servers(service_id['service_id'])
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 87, in get_servers
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:(0, '')
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 128, in get_action
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 2 expected 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 129, in get_action
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 785, in rollback
+    self._execute_command(COMMAND.COM_QUERY, "ROLLBACK")
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 203, in get_action
+    action_list=self.data.get_action(service_id)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 135, in get_action
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:local variable 'action' referenced before assignment
+Traceback (most recent call last):
+  File "attackerScript.py", line 529, in get_data
+    data.fetch_action()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 306, in fetch_action
+    self.actions=self.get_action()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 219, in get_action
+    return action
+UnboundLocalError: local variable 'action' referenced before assignment
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 537, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions[i-1]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    print(actions[i-1]['method'])
+IndexError: list index out of range
+ERROR:root:unsupported operand type(s) for -: 'list' and 'int'
+Traceback (most recent call last):
+  File "attackerScript.py", line 531, in get_data
+    server_count=len(servers-1)
+TypeError: unsupported operand type(s) for -: 'list' and 'int'
+ERROR:root:unsupported operand type(s) for -: 'list' and 'int'
+Traceback (most recent call last):
+  File "attackerScript.py", line 531, in get_data
+    server_count=len(servers-1)
+TypeError: unsupported operand type(s) for -: 'list' and 'int'
+ERROR:root:unsupported operand type(s) for -: 'list' and 'int'
+Traceback (most recent call last):
+  File "attackerScript.py", line 531, in get_data
+    server_count=len(servers-1)
+TypeError: unsupported operand type(s) for -: 'list' and 'int'
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    print(actions[i-1]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:object of type 'int' has no len()
+Traceback (most recent call last):
+  File "attackerScript.py", line 524, in get_data
+    for i in range(len(server_count)):
+TypeError: object of type 'int' has no len()
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:unorderable types: int() < list()
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    if i < list(range(server_count)):
+TypeError: unorderable types: int() < list()
+ERROR:root:unorderable types: int() < range()
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in get_data
+    if i < range(server_count):
+TypeError: unorderable types: int() < range()
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 539, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i+1]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i+1]['method'])
+IndexError: list index out of range
+ERROR:root:list() takes at most 1 argument (2 given)
+Traceback (most recent call last):
+  File "attackerScript.py", line 524, in get_data
+    for i in list(0,range(server_counted)):
+TypeError: list() takes at most 1 argument (2 given)
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    print(actions[i]['method'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 535, in get_data
+    print(servers[i]['ip_addr'])
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:list index out of range
+Traceback (most recent call last):
+  File "attackerScript.py", line 534, in get_data
+    items=[{'Service':service['service_name'],'IP':servers[i]['ip_addr'],'User':servers[i]['username'],'Password':servers[i]['password'],'Method':actions[i]['method']}]
+IndexError: list index out of range
+ERROR:root:could not synchronize with original prompt
+Traceback (most recent call last):
+  File "attackerScript.py", line 473, in execute_ssh_execute_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 333, in login
+    raise ExceptionPxssh('could not synchronize with original prompt')
+pexpect.pxssh.ExceptionPxssh: could not synchronize with original prompt
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fa1a1ac7a20>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 6884
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 160, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fa1a1ac7a20>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 6884
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f63d0eb49b0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 6910
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 136, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f63d0eb49b0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.31']
+searcher: None
+buffer (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftpserver1\r\n331 User ftpserver1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 6910
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1

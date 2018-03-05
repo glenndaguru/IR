@@ -41,9 +41,9 @@ class attackerClass(object):
 		Else call_class_method is executed
 		If method is repeating it will only be executed once
 		'''
-		print("Array Data")
-		print(service_array)
+
 		try:
+			#print(service_array)
 			for key, val in service_array.items():
 				current_ip = val[0].get("IP")
 				current_method = val[0].get("Method")
@@ -517,11 +517,10 @@ class attackerClass(object):
 		This Method returns a dictionary
 		'''
 		try:
-			server_count=2
+			server_count=3
 			my_dic={}
 
-			for i in range(0,server_count):
-
+			for i in list(range(server_count+1)):
 				data=attacker()
 				data.fetch_action()
 				service=data.attack_details['service']
@@ -530,17 +529,17 @@ class attackerClass(object):
 
 				server_count=len(servers)
 
-				if server_count>1:
-					items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+				if server_count>=1:
+					items=[{'Service':service['service_name'],'IP':servers[0]['ip_addr'],'User':servers[0]['username'],'Password':servers[0]['password'],'Method':actions[0]['method']}]
 					my_dic[i]=items
 				else:
-					items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+					items=[{'Service':service['service_name'],'IP':servers[0]['ip_addr'],'User':servers[0]['username'],'Password':servers[0]['password'],'Method':actions[0]['method']}]
 					my_dic[i]=items
-	
+
 		except Exception as e:
 			print (str(e))
 			log.exception(e)
-			
+
 		return my_dic
 	"===================================================================DATA ACCESS METHODS========================================================================="
 

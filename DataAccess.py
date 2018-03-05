@@ -65,14 +65,14 @@ class DataAccess():
                 result = cursor.fetchone()
 
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print(str(e))
+            log.exception(e)
             
         return result
 
     def get_servers(self,service_id):
         try:
-            sql='SELECT s.server_id,s.server_name,s.ip_addr,s.port,s.username,s.password '
+            sql='SELECT s.server_id,s.server_name,s.ip_addr,s.username,s.password '
             sql+="FROM servers s WHERE s.service="+str(service_id)
             #result=self.query_exec(sql)
             connection = self.mysql_connection
@@ -82,9 +82,8 @@ class DataAccess():
                 result = cursor.fetchall()
                 
         except Exception as e:
-			print (str(e))
-			log.exception(e)
-
+            print(str(e))
+            log.exception(e)
         return result
 
     def count_services(self):
@@ -97,8 +96,8 @@ class DataAccess():
                 result = cursor.fetchone()
                 
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print (str(e))
+            log.exception(e)
             
         return result['count']
 
@@ -112,15 +111,15 @@ class DataAccess():
                 result = cursor.fetchone()
             
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print (str(e))
+            log.exception(e)
         return result
 
     def get_action(self,service_id):
         try:
             sql='SELECT a.action_id, a.method FROM action a '
-            sql+='INNER JOIN service s ON '
-            sql +='s.service_id=a.service '
+            #sql+='INNER JOIN service s ON '
+            #sql +='s.service_id=a.service '
             sql+="WHERE a.service="+str(service_id)
 
             connection = self.mysql_connection
@@ -130,9 +129,9 @@ class DataAccess():
                 result = cursor.fetchall()
 
         except Exception as e:
-			print (str(e))
-			log.exception(e)
-            
+            print (str(e))
+            log.exception(e)
+
         return result
 
 class attacker():
@@ -152,11 +151,11 @@ class attacker():
 
     def get_service(self):
         
-            '''
+        '''
             This fetches the service that will be sent an attack
             count number of services in db
             generate a random service id for service to target
-            '''
+        '''
         try:
             service_count=2
 
@@ -187,8 +186,8 @@ class attacker():
                 self.get_service()
 
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print (str(e))
+            log.exception(e)
 
     def get_action(self):
         '''
@@ -203,25 +202,24 @@ class attacker():
             service_id=service['service_id']
             action_list=self.data.get_action(service_id)
 
-            action_id=random.randint(1,len(action_list))
-
+            action_id=random.randint(0,len(action_list))
 
             if action_id==len(action_list):
                 action_id=action_id-1
 
             action=action_list[action_id]
 
-
             self.action=action
+
         
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print (str(e))
+            log.exception(e)
 
         return action
-
+    '''
     def fetch_action(self):
-        '''
+
         run this methood to get the service currently being used
         check if there is more than one server for a service
         genereate an action for each server
@@ -229,7 +227,7 @@ class attacker():
         check if action list is empty
         if action list empty then just add action to action list
         if there is only one service in db
-        '''
+ 
         try:
             self.get_service()
 
@@ -244,10 +242,10 @@ class attacker():
 
                     if actions_list:
                         if action in actions_list:
-                        continue
+                            continue
 
                         else:
-                        actions_list.append(action)
+                            actions_list.append(action)
 
                     else:
                         actions_list.append(action)
@@ -258,9 +256,62 @@ class attacker():
                 self.actions=actions_list
 
             self.attack_details['actions']=self.actions
+
+            print('Printing action-----------------------------')
+            for i in actions_list:
+                print(i)
         
         except Exception as e:
-			print (str(e))
-			log.exception(e)
+            print (str(e))
+            log.exception(e)
+    '''
+    def fetch_action(self):
+        self.get_service()#run this methood to get the service currently being used
+
+        actions_list=[]
+
+        server_count=len(self.servers)
+        # print('server_count')
+        # print(server_count)
+        service_id=self.service['service_id']
+        # print('service_id')
+        # print(service_id)
+
+        if server_count>=1:#check if there is more than one server for a service
+            service_id=self.service['service_id']
+            # print('service_id')
+            # print(service_id)
+            for i in range(0,server_count,1):#genereate an action for each server
+
+                self.get_action()#run this method to get an action
+                action=self.action
+
+                # print('------------------------------------------------------------')
+                # print(i)
+                # print ('get_action')
+                # print (action)
+
+                if actions_list:#check if action list is empty
+                    if action in actions_list:
+                        print('---------------exists')
+                        continue
+
+                    else:
+                        #print('-------------Adding items')
+                        actions_list.append(action)
+
+                else:actions_list.append(action)#if action list empty then just add action to action list
+        else:#if there is only one service in db
+            #print('one service')
+            self.actions=self.get_action()
+
+        self.actions=actions_list
+
+        self.attack_details['actions']=self.actions
 
 
+        # print('\n\n')
+        # print('the list')
+        # print(actions_list)
+att=attacker()
+att.fetch_action()
