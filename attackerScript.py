@@ -505,7 +505,194 @@ class attackerClass(object):
 			print (str(e))
 			log.exception(e)
 	"===================================================================SSH METHODS========================================================================="
+	
+	"===================================================================WEB SERVER METHODS========================================================================="
+	@staticmethod
+	def execute_web_login(args):
+		'''
+		SSH directly into the machine using parameters received
+		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
 
+		try:
+			print("SSH Web Server Login Being Executed")
+			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
+			ssh_handle.login(ip, user, password)
+			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
+
+			if index == 0:
+				ssh_handle.sendline("yes")
+				ssh_handle.sendline(password)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("exit")
+
+				print("SSH Web Server Login Succesful ")
+
+			if index == 1:
+				ssh_handle.expect("$")
+				ssh_handle.sendline("exit")
+
+				print("SSH Web Server Login Succesful ")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+			
+		except pxssh.ExceptionPxssh as e:
+			print("Error")
+			print (str(e))
+			log.exception(e)
+		
+	@staticmethod
+	def execute_web_sudo_login():
+		'''
+		SSH directly into the machine using parameters received
+		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+
+		try:
+			print("SSH Web Server sudo Login Being Executed")
+			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
+			ssh_handle.login(ip, user, password)
+			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
+
+			if index == 0:
+				ssh_handle.sendline("yes")
+				ssh_handle.sendline(password)
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
+				print("SSH sudo Login Succesful ")
+
+			if index == 1:
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.sendline("logout")
+
+				print("SSH Web Server sudo Login Succesful ")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pxssh.ExceptionPxssh as e:
+			print("Error")
+			print (str(e))
+			log.exception(e)
+		
+	@staticmethod
+	def execute_web_create_file():
+		'''
+		SSH directly into the machine using parameters received
+		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+
+		try:
+			print("File Being Created")
+
+			file_command = """echo '#!/bin/bash' >> exe.sh &&  echo 'echo Hello World!' >> exe.sh"""
+
+			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
+			ssh_handle.login(ip, user, password)
+			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
+
+			if index == 0:
+				ssh_handle.sendline("yes")
+				ssh_handle.sendline(password)
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.logout()
+
+				print("File Succesfully Created")
+
+			if index == 1:
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.logout()
+
+				print("File Succesfully Created")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pxssh.ExceptionPxssh as e:
+			print (str(e))
+			log.exception(e)
+		
+	@staticmethod
+	def execute_web_execute_file():
+		'''
+		SSH directly into the machine using parameters received
+		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+
+		try:
+			print("File Being Executed")
+			file_command = "{} {}".format("bash","exe.sh")
+			ssh_handle = pxssh.pxssh(options={"StrictHostKeyChecking": "no","UserKnownHostsFile": "/dev/null"})
+			ssh_handle.login(ip, user, password)
+			index = ssh_handle.expect(['[#\$]','$',pexpect.EOF])
+
+			if index == 0:
+				ssh_handle.sendline("yes")
+				ssh_handle.sendline(password)
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.logout()
+
+				print("File Succesfully Executed")
+
+			if index == 1:
+				ssh_handle.sendline('sudo -s')
+				ssh_handle.sendline(password)
+				ssh_handle.sendline(file_command)
+				ssh_handle.expect("#")
+				ssh_handle.sendline("exit")
+				ssh_handle.expect("$")
+				ssh_handle.logout()
+
+				print("File Succesfully Executed")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pxssh.ExceptionPxssh as e:
+			print (str(e))
+			log.exception(e)
+		
+	
+	"===================================================================WEB SERVER METHODS========================================================================="
 
 	"===================================================================DATA ACCSS METHODS========================================================================="
 	@staticmethod
