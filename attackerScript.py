@@ -221,6 +221,7 @@ class attackerClass(object):
 
 		except Exception as e:
 			print (str(e))
+			log.exception(e)
 
 	@staticmethod
 	def execute_ftp_put_user_file(args):
@@ -252,7 +253,38 @@ class attackerClass(object):
 		except Exception as e:
 			print (str(e))
 			log.exception(e)
+			
+	@staticmethod
+	def execute_ftp_execute_file(args):
+		'''
+		FTP directly into the machine using parameters received
+		Put a file into the machine
+		'''
 
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+
+		try:
+			print("File Creation Being Executed")
+			line = "ftp -p {}".format(ip)
+			file_command = "put {}".format("execute.py")
+			child = pexpect.spawn(line)
+			child.expect(":")
+			child.sendline(user)
+			child.expect(":")
+			child.sendline(password)
+			child.expect(">")
+			child.sendline(file_command)
+			child.expect(">")
+			child.sendline("bye")
+
+			print("File Creation Successfully Executed")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+			
 	@staticmethod
 	def execute_ftp_get_user_file(args):
 		'''
@@ -321,10 +353,12 @@ class attackerClass(object):
 
 		except Exception as e:
 			print (str(e))
-
+			log.exception(e)
+			
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
 			print (str(e))
+			log.exception(e)
 
 	@staticmethod
 	def execute_ssh_sudo(args):
@@ -365,10 +399,12 @@ class attackerClass(object):
 
 		except Exception as e:
 			print (str(e))
+			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
 			print (str(e))
+			log.exception(e)
 
 
 	@staticmethod
@@ -415,9 +451,11 @@ class attackerClass(object):
 
 		except Exception as e:
 			print (str(e))
+			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
+			log.exception(e)
 
 	@staticmethod
 	def execute_ssh_execute_file(args):
@@ -461,156 +499,55 @@ class attackerClass(object):
 
 		except Exception as e:
 			print (str(e))
+			log.exception(e)
 
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
+			log.exception(e)
 	"===================================================================SSH METHODS========================================================================="
 
 
-
-	"===================================================================DataAccess METHODS========================================================================="
-
+	"===================================================================DATA ACCSS METHODS========================================================================="
 	@staticmethod
 	def get_data():
-		# att=attacker()
-	# att.fetch_action()
-	#print(att.attack_details)
+		'''
+		Method called from DataAccess.py
+		Method collects data from database
+		This data is collected randomly
+		This Method returns a dictionary
+		'''
+		try:
+			server_count=2
+			my_dic={}
 
-		server_count=2
-		my_dic={}#lol
+			for i in range(0,server_count):
 
-		for i in range(0,server_count):
-			data=attacker()
-			data.fetch_action()
-			#print(data.actions)
+				data=attacker()
+				data.fetch_action()
+				service=data.attack_details['service']
+				servers=data.servers
+				actions=data.actions
 
-			print ('-------------------------------------------')
-			service=data.attack_details['service']
-			servers=data.servers#attack_details['servers']
-			#actions=data.attack_details['actions']
-			actions=data.actions
-			#print('actions----')
-			#print(actions)
+				server_count=len(servers)
 
-			# service=data.service['service_name']
-			# servers=data.attack_details['servers']
-			# actions=data.actions['action_id']
-
-			# print(i)
-			# print(servers[i-1])
-			#print(type(servers))
-			#print(actions)    #get a random server to attacker
-			server_count=len(servers)
-
-			if server_count>1:
-				items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
-				my_dic[i]=items
-			else:
-				items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
-				my_dic[i]=items
-
-			# rand_server=random.randint(0,server_count)
-			# server=servers[rand_server]
-
-			# print('Server')
-			# print(servers)    #get a random method to execute on the server
-
-
-			# action_count=len(actions)
-			# print(action_count)
-			#
-			# if action_count>1:
-			#    action_count=len(actions)-1
-			#    print(action_count)
-			#
-			# action_id=random.randint(0,action_count)
-			# action=actions[action_id]
-
-			#print ('action')
-			#print(action)
-			# items={'Service':service['service_name'],'IP':server['']['ip-addr'],'User':servers['']['username'],'Password':servers['']['password'],'Method':action['']['method'],}
-			# items={'Service':service['service_name'],'IP':servers['ip_addr'],'User':servers['username'],'Password':servers['password'],'Method':actions['method']}
-			# my_dic[i]=items
-
-
-			#  # deselect all
-			# bpy.ops.object.select_all(action='DESELECT')
-			#
-			#  # selection
-			# bpy.data.objects['attacker'].select = True
-
-			# remove it
-
-		# print(len(my_dic))
-		# for i in range(0,len(my_dic),1):
-		# 	print(i)
-		# 	print(my_dic[i])
-		# 	print('\n\n')
+				if server_count>1:
+					items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+					my_dic[i]=items
+				else:
+					items=[{'Service':service['service_name'],'IP':servers[i-1]['ip_addr'],'User':servers[i-1]['username'],'Password':servers[i-1]['password'],'Method':actions['method']}]
+					my_dic[i]=items
+	
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+			
 		return my_dic
+	"===================================================================DATA ACCESS METHODS========================================================================="
 
-
+	
 if __name__ == "__main__":
 	object = attackerClass()
-# 	the_array = {
-# 	0: [{
-# 		"Service": "FTP",
-# 		"IP": "146.64.182.213",
-# 		"User": "ftpserver1",
-# 		"Password": "ftpserver1",
-# 		"Method": "hydra_spawn"
-# 	}],
-# 	1: [{
-# 		"Service": "SSH",
-# 		"IP": "10.0.5.37",
-# 		"User": "ubuntu",
-# 		"Password": "ubuntu",
-# 		"Method": "hydra_spawn"
-# 	}],
-# 	2: [{
-# 		"Service": "FTP",
-# 		"IP": "146.64.182.213",
-# 		"User": "ftpserver1",
-# 		"Password": "ftpserver1",
-# 		"Method": "execute_ftp_put_user_file"
-# 	}],
-# 	3: [{
-# 		"Service": "FTP",
-# 		"IP": "146.64.182.213",
-# 		"User": "ftp",
-# 		"Password": "ftp",
-# 		"Method": "execute_ftp_login_anon_user"
-# 	}],
-# 	4: [{
-# 		"Service": "SSH",
-# 		"IP": "10.0.5.37",
-# 		"User": "ubuntu",
-# 		"Password": "ubuntu",
-# 		"Method": "execute_ssh_login"
-# 	}],
-# 	5: [{
-# 		"Service": "SSH",
-# 		"IP": "10.0.5.37",
-# 		"User": "ubuntu",
-# 		"Password": "ubuntu",
-# 		"Method": "execute_ssh_create_file"
-# 	}],
-# 	6: [{
-# 		"Service": "SSH",
-# 		"IP": "10.0.5.37",
-# 		"User": "ubuntu",
-# 		"Password": "ubuntu",
-# 		"Method": "execute_ssh_create_file"
-# 	}],
-# 	7: [{
-# 		"Service": "FTP",
-# 		"IP": "146.64.182.213",
-# 		"User": "ftpserver1",
-# 		"Password": "ftpserver1",
-# 		"Method": "execute_ftp_get_user_file"
-# 	}]
-# }
 	the_array=object.get_data()
-	#print(the_array)
-
 	object.generate_random_request(the_array)
-	print('done exec--------------------')
+	
+	print('====Execution Complete====')
