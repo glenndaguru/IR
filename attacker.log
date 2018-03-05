@@ -70,3 +70,78 @@ searchwindowsize: None
 delaybeforesend: 0.05
 delayafterclose: 0.1
 delayafterterminate: 0.1
+ERROR:root:'NoneType' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 45, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'NoneType' object has no attribute 'items'
+ERROR:root:'NoneType' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 45, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'NoneType' object has no attribute 'items'
+ERROR:root:'NoneType' object has no attribute 'items'
+Traceback (most recent call last):
+  File "attackerScript.py", line 45, in generate_random_request
+    for key, val in service_array.items():
+AttributeError: 'NoneType' object has no attribute 'items'
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 46, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 46, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 46, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 46, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 48, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 47, in generate_random_request
+    current_ip = val[0].get("IP")
+KeyError: 0
+ERROR:root:type object 'attackerClass' has no attribute ''
+Traceback (most recent call last):
+  File "attackerScript.py", line 82, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+AttributeError: type object 'attackerClass' has no attribute ''
