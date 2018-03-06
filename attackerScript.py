@@ -704,24 +704,17 @@ class attackerClass(object):
 		This Method returns a dictionary
 		'''
 		try:
-			server_count=3
 			my_dic={}
+			data=attacker()
 
-			for i in list(range(server_count+1)):
-				data=attacker()
-				data.fetch_action()
-				service=data.attack_details['service']
-				servers=data.servers
-				actions=data.actions
+			count=len(data.servers_and_methods)
+			service=data.service
+			servers=data.servers_and_methods
 
-				server_count=len(servers)
+			for i in range(0,count):
+				items=[{'Service':service['service_name'],'IP':servers[i]['server']['ip_addr'],'User':servers[i]['server']['username'],'Password':servers[i]['server']['password'],'Method':servers[i]['method']}]
+				my_dic[i]=items
 
-				if server_count>=1:
-					items=[{'Service':service['service_name'],'IP':servers[0]['ip_addr'],'User':servers[0]['username'],'Password':servers[0]['password'],'Method':actions[0]['method']}]
-					my_dic[i]=items
-				else:
-					items=[{'Service':service['service_name'],'IP':servers[0]['ip_addr'],'User':servers[0]['username'],'Password':servers[0]['password'],'Method':actions[0]['method']}]
-					my_dic[i]=items
 
 		except Exception as e:
 			print (str(e))
@@ -733,7 +726,9 @@ class attackerClass(object):
 	
 if __name__ == "__main__":
 	object = attackerClass()
+	#object.get_data()
 	the_array=object.get_data()
+	print(the_array)
 	object.generate_random_request(the_array)
-	
+
 	print('====Execution Complete====')
