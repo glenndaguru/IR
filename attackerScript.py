@@ -690,8 +690,29 @@ class attackerClass(object):
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
 			log.exception(e)
-		
 	
+	@staticmethod
+	def execute_web_dowload_files(args):
+		'''
+		Use wget to download files directly from webserver
+		'''
+		ip = args["IP"]
+
+		try:
+			print("Files Being Downloaded")
+			command = "wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://{}/index.php/download-menu".format(ip)
+			child = pexpect.spawn(command)
+			time.sleep(5)
+			print("Files Succesfully Downloaded")
+			child.close()
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pexpect.EOF:
+			print("Files Succesfully Downloaded")
+			child.close()
 	"===================================================================WEB SERVER METHODS========================================================================="
 
 	"===================================================================DATA ACCSS METHODS========================================================================="
