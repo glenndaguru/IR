@@ -7,7 +7,7 @@ import logging as log
 import inspect
 import json
 import random
-from DataAccess import DataAccess,attacker
+#from DataAccess import DataAccess,attacker
 import os
 import subprocess
 
@@ -707,20 +707,19 @@ class attackerClass(object):
 			log.exception(e)
 	
 	@staticmethod
-	def execute_web_dowload_files(ip):#(args):
+	def execute_web_dowload_files(args):
 		'''
 		Use wget to download files directly from webserver
 		'''
-		#ip = args["IP"]
+		ip = args["IP"]
 
 		try:
 			print("Files Being Downloaded")
-			#host = "http://{}/index.php/download-menu".format(ip)
 			command = "wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://{}/index.php/download-menu".format(ip)
 			child = pexpect.spawn(command)
 			child.expect("$")
-			child.interact()
-
+			child.close()
+			
 			print("Files Succesfully Downloaded")
 
 
@@ -766,7 +765,6 @@ class attackerClass(object):
 if __name__ == "__main__":
 	object = attackerClass()
 	the_array=object.get_data()
-	object.execute_web_dowload_files("10.0.5.41")
-	#object.generate_random_request(the_array)
+	object.generate_random_request(the_array)
 
 	print('====Execution Complete====')
