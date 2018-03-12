@@ -21,6 +21,7 @@ rep=repetition_checker()
 class DataAccess():
     def __init__(self):
         self.mysql_connection = self.get_mysql_connection()
+        self.service_count=self.count_services()
 
     def get_mysql_connection(db_file): #mysql db connection
         '''
@@ -37,7 +38,7 @@ class DataAccess():
             database = lines[3]#'127.0.0.1'
             #connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
             '''
-            connection = pymysql.connect(host='10.0.5.30', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
+            connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
             #connection = pymysql.connect(host='192.168.8.126', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)#host=146.64.182.136
             print('connected')
         except Exception as e:
@@ -52,7 +53,6 @@ class DataAccess():
         try:
             sql='SELECT s.service_id,s.service_name FROM service s '
             sql+="WHERE s.service_id="+str(service_id)
-            sql+=" AND s.service_id != 3"
             #result=self.query_exec(sql)
             connection = self.mysql_connection
 
@@ -65,6 +65,15 @@ class DataAccess():
             log.exception(e)
             
         return result
+
+    def count_services(self):
+        sql='SELECT COUNT(service_id) as count FROM service'
+        connection = self.mysql_connection
+
+        with connection as cursor:
+            cursor.execute(sql)
+            result = cursor.fetchone()
+        return result['count']
 
     def get_servers(self,service_id):
         try:
@@ -149,7 +158,7 @@ class attacker():
             elif service ==2:#>250 and service<500:#FTP Server
                 service_id = self.data.get_service(2)
             elif service ==3:#>500 and service<=750:#Web Server
-               service_id = self.data.get_service(1)
+               service_id = self.data.get_service(3)
 
             checker=rep.check(service_id['service_id'])
 
@@ -161,7 +170,6 @@ class attacker():
 
                 servers=self.data.get_servers(service_id['service_id'])
                 self.servers=servers
-
 
                 return service_id
             else:
@@ -214,3 +222,5 @@ class attacker():
         i=random.randint(0,count)
 
         return users[i]
+#att=attacker()
+#att.get_action()

