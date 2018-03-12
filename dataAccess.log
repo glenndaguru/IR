@@ -1650,3 +1650,91 @@ Traceback (most recent call last):
   File "attackerScript.py", line 92, in call_class_method
     the_method = getattr(attackerClass,method)(values)
 TypeError: execute_web_create_file() takes 0 positional arguments but 1 was given
+ERROR:root:could not synchronize with original prompt
+Traceback (most recent call last):
+  File "attackerScript.py", line 438, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 333, in login
+    raise ExceptionPxssh('could not synchronize with original prompt')
+pexpect.pxssh.ExceptionPxssh: could not synchronize with original prompt
+ERROR:root:type object 'attackerClass' has no attribute 'execute_web_sudo'
+Traceback (most recent call last):
+  File "attackerScript.py", line 92, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+AttributeError: type object 'attackerClass' has no attribute 'execute_web_sudo'
+ERROR:root:'module' object is not callable
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess([command])
+TypeError: 'module' object is not callable
+ERROR:root:'module' object is not callable
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess([command])
+TypeError: 'module' object is not callable
+ERROR:root:[Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess.Popen([command])
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+ERROR:root:[Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess.Popen(command)
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+ERROR:root:'list' object has no attribute 'format'
+Traceback (most recent call last):
+  File "attackerScript.py", line 718, in execute_web_dowload_files
+    command = ["wget"," -R", "html","htm","php","asp","jsp","js","py","css -r -A pdf,txt -nd","http://{}/index.php/download-menu"].format(ip)
+AttributeError: 'list' object has no attribute 'format'
+ERROR:root:'list' object has no attribute 'format'
+Traceback (most recent call last):
+  File "attackerScript.py", line 718, in execute_web_dowload_files
+    command = ["wget", "-R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd" ,"http://{}/index.php/download-menu"].format(ip)
+AttributeError: 'list' object has no attribute 'format'
+ERROR:root:'list' object has no attribute 'format'
+Traceback (most recent call last):
+  File "attackerScript.py", line 718, in execute_web_dowload_files
+    command = ["wget", "-R", "-html","-htm","-php","-asp","-jsp","-js","-py","-css", "-r", "-A", "-pdf","-txt", "-nd" ,"http://{}/index.php/download-menu"].format(ip)
+AttributeError: 'list' object has no attribute 'format'
+ERROR:root:expect bytes or str, not list
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess.Popen([command])
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1474, in _execute_child
+    executable = os.fsencode(executable)
+  File "/usr/lib/python3.5/os.py", line 862, in fsencode
+    raise TypeError("expect bytes or str, not %s" % type(filename).__name__)
+TypeError: expect bytes or str, not list
+ERROR:root:expect bytes or str, not list
+Traceback (most recent call last):
+  File "attackerScript.py", line 723, in execute_web_dowload_files
+    child = subprocess.Popen([command])
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1474, in _execute_child
+    executable = os.fsencode(executable)
+  File "/usr/lib/python3.5/os.py", line 862, in fsencode
+    raise TypeError("expect bytes or str, not %s" % type(filename).__name__)
+TypeError: expect bytes or str, not list
+ERROR:root:[Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+Traceback (most recent call last):
+  File "attackerScript.py", line 722, in execute_web_dowload_files
+    subprocess.call(command)
+  File "/usr/lib/python3.5/subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'

