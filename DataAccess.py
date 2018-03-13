@@ -7,9 +7,12 @@ log.basicConfig(filename='dataAccess.log',level=log.DEBUG)
 
 class repetition_checker():
     def __init__(self):
+        #print("repetition class initiated")
         self.old_val=0
 
     def check(self,value):
+        #print("check")
+        #print(value)
         if self.old_val==value:
             self.old_val=value
             return True
@@ -22,6 +25,8 @@ class DataAccess():
     def __init__(self):
         self.mysql_connection = self.get_mysql_connection()
         self.service_count=self.count_services()
+        self.ftp_user_result=None
+        self.ftp_anon_user_result=None
 
     def get_mysql_connection(db_file): #mysql db connection
         '''
@@ -40,7 +45,7 @@ class DataAccess():
             '''
             connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
             #connection = pymysql.connect(host='192.168.8.126', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)#host=146.64.182.136
-            print('connected')
+            #print('connected')
         except Exception as e:
             print("Error: Could not connect to the database.\n")
             print("Checka di Settings.\n")
@@ -111,30 +116,48 @@ class DataAccess():
         return result
 
     def get_ftp_users(self):
+        result=None
         try:
             sql='SELECT user_id,username,password '
-            sql+="FROM ftp_users"
+            sql+="FROM ftp_users "
+            sql+="WHERE username LIKE 't%' "
             #result=self.query_exec(sql)
             connection = self.mysql_connection
 
             with connection as cursor:
                 cursor.execute(sql)
                 result = cursor.fetchall()
+                self.ftp_user_result=result
 
         except Exception as e:
             print(str(e))
             log.exception(e)
-        return result
+        return self.ftp_user_result
 
-class attacker():
+    def get_ftp_anon_users(self):
+        result=None
+        try:
+            sql='SELECT user_id,username,password '
+            sql+="FROM ftp_users "
+            sql+="WHERE username LIKE 'f%' OR username LIKE 'a%' "
+            connection = self.mysql_connection
+
+            with connection as cursor:
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                self.ftp_anon_user_result=result
+
+        except Exception as e:
+            print(str(e))
+            log.exception(e)
+        return self.ftp_anon_user_result
+
+class attacker(object):
     def __init__(self):
+        #print("attacker class initiated")
         self.data=DataAccess()
-        #self.temp_service_id=self.get_service()
-        self.repetition_check=repetition_checker()
-
         self.service =None
         self.servers={}
-
         self.servers_and_methods=self.get_action()
 
 
@@ -147,7 +170,7 @@ class attacker():
         '''
         try:
             service_count=self.data.service_count
-            print('---------Gott service--------')
+            #print('---------Gott service--------')
 
             service=random.randint(1,service_count)
 
@@ -173,7 +196,7 @@ class attacker():
 
                 return service_id
             else:
-                print('service exists, getting another')
+                #print('service exists, getting another')
                 self.get_service()
 
         except Exception as e:
@@ -222,5 +245,18 @@ class attacker():
         i=random.randint(0,count)
 
         return users[i]
-#att=attacker()
-#att.get_action()
+
+    def get_ftp_anon_user(self):
+        users=self.data.get_ftp_anon_users()
+        count=len(users)-1
+        i=random.randint(0,count)
+
+        return users[i]
+# att=attacker()
+# a=att.get_ftp_anon_user()
+# print(a)
+# for i in range(0,20):
+#     a=attacker()
+#     serevice=a.get_service()
+#     print('-------------------------'+str(i)+'--------------------')
+#     print(serevice)

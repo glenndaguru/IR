@@ -1,0 +1,10 @@
+ERROR:root:name 'attacker' is not defined
+Traceback (most recent call last):
+  File "attackerScript.py", line 746, in get_data
+    data=attacker()
+NameError: name 'attacker' is not defined
+ERROR:root:name 'attacker' is not defined
+Traceback (most recent call last):
+  File "attackerScript.py", line 746, in get_data
+    data=attacker()
+NameError: name 'attacker' is not defined

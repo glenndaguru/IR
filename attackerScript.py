@@ -7,14 +7,14 @@ import logging as log
 import inspect
 import json
 import random
-#from DataAccess import DataAccess,attacker
+from DataAccess import DataAccess,attacker
 import os
 import subprocess
 
 log.basicConfig(filename='attacker.log',level=log.DEBUG)
 
 class attackerClass(object):
-
+	#data=attacker()#instantiate dataAccess class
 	"===================================================================INITIALISE========================================================================="
 	def __init__(self):
 		self.ip = ""
@@ -23,8 +23,29 @@ class attackerClass(object):
 		self.command = ""
 		self.db_array = ""
 		self.method = ""
+		self.data=attacker()
+		#attackerClass.__init__(self)
+		#data=attacker()
+	def __delete__(self, instance):
+		pass
 
 	"===================================================================INITIALISE========================================================================="
+
+	"===================================================================GET ANON AND NORMAL USERES========================================================="
+	#Anonymous User Methods
+	@staticmethod
+	def attack_ftp_user():
+		ini = attackerClass()
+		user = ini.data.get_ftp_user()
+		return user
+
+	@staticmethod
+	def attack_ftp_anon_user():
+		ini = attackerClass()
+		ftp_anon_user = ini.data.get_ftp_anon_user()
+		return ftp_anon_user
+	"===================================================================GET ANON AND NORMAL USERES========================================================="
+
 
 	@staticmethod
 	def kill_hydra():
@@ -129,16 +150,15 @@ class attackerClass(object):
 			attackerClass.kill_hydra()
 
 	"===================================================================FTP METHODS========================================================================="
-	#Anonymous User Methods
+
 	@staticmethod
 	def execute_ftp_login_anon_user(args):
 		'''
 		FTP directly into the machine using parameters received
 		'''
-
 		ip = args["IP"]
-		user='ftp'
-		#user = args["User"]
+		user_data= attackerClass.attack_ftp_anon_user()#attackerClass.attack_ftp_anon_user()
+		user = user_data['username']
 
 		try:
 			print("Anonymous Login Being Executed")
@@ -161,9 +181,10 @@ class attackerClass(object):
 		FTP directly into the machine using parameters received
 		Put a file into the machine
 		'''
+
 		ip = args["IP"]
-		user='ftp'
-		#user = args["User"]
+		user_data=attackerClass.attack_ftp_anon_user()
+		user = user_data['username']
 
 		try:
 			print("Anonymous File Creation Being Executed")
@@ -190,8 +211,8 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user='ftp'
-		#user = args["User"]
+		user_data=attackerClass.attack_ftp_anon_user()
+		user = user_data['username']
 
 		try:
 			print("Anonymous File Download Executed")
@@ -218,8 +239,9 @@ class attackerClass(object):
 		FTP directly into the machine using parameters received
 		'''
 		ip = args["IP"]
-		user = 'test1'#args["User"]
-		password ='test1'# args["Pass"]
+		user_data =attackerClass.attack_ftp_user()
+		user = user_data['username']
+		password =user_data['password']
 
 		try:
 			print("Login Being Executed")
@@ -246,8 +268,9 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = 'test1'#args["User"]
-		password ='test1'# args["Pass"]
+		user_data =attackerClass.attack_ftp_user()
+		user = user_data['username']
+		password =user_data['password']
 
 		try:
 			print("File Creation Being Executed")
@@ -277,8 +300,9 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = 'test1'#args["User"]
-		password ='test1'# args["Pass"]
+		user_data =attackerClass.attack_ftp_user()
+		user = user_data['username']
+		password =user_data['password']
 
 		try:
 			print("File Being Executed")
@@ -299,7 +323,7 @@ class attackerClass(object):
 		except Exception as e:
 			print (str(e))
 			log.exception(e)
-			
+
 	@staticmethod
 	def execute_ftp_get_user_file(args):
 		'''
@@ -308,8 +332,9 @@ class attackerClass(object):
 		'''
 
 		ip = args["IP"]
-		user = 'test1'#args["User"]
-		password ='test1'# args["Pass"]
+		user_data =attackerClass.attack_ftp_user()
+		user = user_data['username']
+		password =user_data['password']
 
 		try:
 			print("File Download Being Executed")
@@ -527,7 +552,7 @@ class attackerClass(object):
 		'''
 		SSH directly into the machine using parameters received
 		'''
-		ip = args["IP"]
+		ip = args[0]["IP"]
 		user = args["User"]
 		password = args["Pass"]
 
@@ -556,12 +581,12 @@ class attackerClass(object):
 		except Exception as e:
 			print (str(e))
 			log.exception(e)
-			
+
 		except pxssh.ExceptionPxssh as e:
 			print("Error")
 			print (str(e))
 			log.exception(e)
-		
+
 	@staticmethod
 	def execute_web_sudo_login(args):
 		'''
@@ -607,7 +632,7 @@ class attackerClass(object):
 			print("Error")
 			print (str(e))
 			log.exception(e)
-		
+
 	@staticmethod
 	def execute_web_create_file(args):
 		'''
@@ -657,7 +682,7 @@ class attackerClass(object):
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
 			log.exception(e)
-		
+
 	@staticmethod
 	def execute_web_execute_file(args):
 		'''
@@ -705,7 +730,7 @@ class attackerClass(object):
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
 			log.exception(e)
-	
+
 	@staticmethod
 	def execute_web_dowload_files(args):
 		'''
@@ -717,10 +742,11 @@ class attackerClass(object):
 			print("Files Being Downloaded")
 			command = "wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://{}/index.php/download-menu".format(ip)
 			child = pexpect.spawn(command)
-			child.expect("$")
-			child.close()
-			
-			print("Files Succesfully Downloaded")
+			if child.isalive():
+				child.expect("$")
+				time.sleep(10)			
+				print("Files Succesfully Downloaded")
+				child.close()
 
 
 		except Exception as e:
@@ -733,8 +759,9 @@ class attackerClass(object):
 	"===================================================================WEB SERVER METHODS========================================================================="
 
 	"===================================================================DATA ACCSS METHODS========================================================================="
-	@staticmethod
-	def get_data():
+
+
+	def get_data(self):
 		'''
 		Method called from DataAccess.py
 		Method collects data from database
@@ -743,11 +770,10 @@ class attackerClass(object):
 		'''
 		try:
 			my_dic={}
-			data=attacker()
 
-			count=len(data.servers_and_methods)
-			service=data.service
-			servers=data.servers_and_methods
+			count=len(self.data.servers_and_methods)
+			service=self.data.service
+			servers=self.data.servers_and_methods
 
 			for i in range(0,count):
 				items=[{'Service':service['service_name'],'IP':servers[i]['server']['ip_addr'],'User':servers[i]['server']['username'],'Password':servers[i]['server']['password'],'Method':servers[i]['method']}]
@@ -759,12 +785,19 @@ class attackerClass(object):
 			log.exception(e)
 
 		return my_dic
+
 	"===================================================================DATA ACCESS METHODS========================================================================="
 
-	
+
 if __name__ == "__main__":
-	object = attackerClass()
-	the_array=object.get_data()
-	object.generate_random_request(the_array)
+	random_repetition=random.randint(1,5)
+	print('Running '+str(random_repetition)+' times')
+	for i in range(0,random_repetition):
+		print('Iteration '+str(i))
+		object = attackerClass()
+		the_array=object.get_data()
+		object.generate_random_request(the_array)
+		time.sleep(5)
 
 	print('====Execution Complete====')
+

@@ -1738,3 +1738,1754 @@ Traceback (most recent call last):
   File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
     raise child_exception_type(errno_num, err_msg)
 FileNotFoundError: [Errno 2] No such file or directory: 'wget -R html,htm,php,asp,jsp,js,py,css -r -A pdf,txt -nd http://10.0.5.41/index.php/download-menu'
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.43' (timed out)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 41, in get_mysql_connection
+    connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.43' (timed out)")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "DataAccess.py", line 122, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 122, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 122, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 122, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 122, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 123, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 123, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 125, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 125, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7 OR user_id NOT 8' at line 1")
+ERROR:root:(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7' at line 1")
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 125, in get_ftp_users
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7' at line 1")
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f609a497e80>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 5849
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 460, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 337, in login
+    if not self.set_unique_prompt():
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 398, in set_unique_prompt
+    i = self.expect ([TIMEOUT, self.PROMPT], timeout=10)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f609a497e80>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 5849
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:string indices must be integers
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 239, in execute_ftp_login_normal_user
+    password =user['password']
+TypeError: string indices must be integers
+ERROR:root:'attacker' object is not callable
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 330, in execute_ftp_get_user_file
+    user=attackerClass.get_ftp_user()
+  File "attackerScript.py", line 35, in get_ftp_user
+    user=attackerClass.data().get_ftp_user()
+TypeError: 'attacker' object is not callable
+ERROR:root:string indices must be integers
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 332, in execute_ftp_get_user_file
+    password =user['password']
+TypeError: string indices must be integers
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 550, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f223502df98>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7031
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 337, in login
+    if not self.set_unique_prompt():
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 398, in set_unique_prompt
+    i = self.expect ([TIMEOUT, self.PROMPT], timeout=10)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f223502df98>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7031
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f223502df60>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7061
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f223502df60>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7061
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f912c5d4f60>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7300
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f912c5d4f60>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7300
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:could not synchronize with original prompt
+Traceback (most recent call last):
+  File "attackerScript.py", line 412, in execute_ssh_sudo
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 333, in login
+    raise ExceptionPxssh('could not synchronize with original prompt')
+pexpect.pxssh.ExceptionPxssh: could not synchronize with original prompt
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f912c5d4f28>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7302
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f912c5d4f28>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7302
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fe3cbb87fd0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7364
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fe3cbb87fd0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7364
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fe3cbb87fd0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7366
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 462, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fe3cbb87fd0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7366
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 771, in get_data
+    count=len(attackerClass.data.servers_and_methods)
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 771, in get_data
+    count=len(attackerClass.data.servers_and_methods)
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 771, in get_data
+    count=len(attackerClass.data.servers_and_methods)
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 771, in get_data
+    count=len(attackerClass.data.servers_and_methods)
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 770, in get_data
+    print(str(attackerClass.data))
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 770, in get_data
+    print(str(attackerClass.data))
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 770, in get_data
+    print(str(attackerClass.data))
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 770, in get_data
+    print(str(attackerClass.data))
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 268, in execute_ftp_put_user_file
+    user_data =attackerClass.get_ftp_user()
+  File "attackerScript.py", line 37, in get_ftp_user
+    user=attackerClass.data.get_ftp_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 158, in execute_ftp_login_anon_user
+    user=attackerClass.get_ftp_anon_user()
+  File "attackerScript.py", line 42, in get_ftp_anon_user
+    ftp_anon_user=attackerClass.data.get_ftp_anon_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 552, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:execute_ftp_get_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_get_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_get_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_get_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 552, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f6bb3be1b00>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7946
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 648, in execute_web_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 337, in login
+    if not self.set_unique_prompt():
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 398, in set_unique_prompt
+    i = self.expect ([TIMEOUT, self.PROMPT], timeout=10)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f6bb3be1b00>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 7946
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:execute_ftp_login_anon_user() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_login_anon_user() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:get_ftp_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 239, in execute_ftp_login_normal_user
+    user_data = attackerClass.get_ftp_user()
+TypeError: get_ftp_user() missing 1 required positional argument: 'self'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 183, in execute_ftp_put_anon_file
+    user = attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 211, in execute_ftp_get_anon_file
+    user=attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 211, in execute_ftp_get_anon_file
+    user=attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 211, in execute_ftp_get_anon_file
+    user=attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_login_normal_user() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_login_normal_user() missing 1 required positional argument: 'args'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 300, in execute_ftp_execute_file
+    user_data =attackerClass.data.get_ftp_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 158, in execute_ftp_login_anon_user
+    user=attackerClass.data.get_ftp_anon_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 269, in execute_ftp_put_user_file
+    user_data =attackerClass.data.get_ftp_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 212, in execute_ftp_get_anon_file
+    user_data=attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:get_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 184, in execute_ftp_put_anon_file
+    user_data = attackerClass.get_ftp_anon_user()
+TypeError: get_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48872f2ac8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8675
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 649, in execute_web_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 337, in login
+    if not self.set_unique_prompt():
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 398, in set_unique_prompt
+    i = self.expect ([TIMEOUT, self.PROMPT], timeout=10)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48872f2ac8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8675
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_execute_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_execute_file() missing 1 required positional argument: 'args'
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48872f2ac8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8677
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 600, in execute_web_sudo_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 280, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT, "(?i)connection closed by remote host"], timeout=login_timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48872f2ac8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.41']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8677
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48873081d0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8678
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 373, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 337, in login
+    if not self.set_unique_prompt():
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 398, in set_unique_prompt
+    i = self.expect ([TIMEOUT, self.PROMPT], timeout=10)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f48873081d0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.37']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 8678
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:execute_ftp_get_user_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_get_user_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_user_file() missing 1 required positional argument: 'args'
+ERROR:root:call_class_method() missing 1 required positional argument: 'password'
+Traceback (most recent call last):
+  File "attackerScript.py", line 94, in generate_random_request
+    attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+TypeError: call_class_method() missing 1 required positional argument: 'password'
+ERROR:root:call_class_method() missing 1 required positional argument: 'password'
+Traceback (most recent call last):
+  File "attackerScript.py", line 89, in generate_random_request
+    attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+TypeError: call_class_method() missing 1 required positional argument: 'password'
+ERROR:root:call_class_method() missing 1 required positional argument: 'password'
+Traceback (most recent call last):
+  File "attackerScript.py", line 94, in generate_random_request
+    attackerClass.call_class_method(current_method,current_ip,current_user,current_pass)
+TypeError: call_class_method() missing 1 required positional argument: 'password'
+ERROR:root:execute_ssh_create_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ssh_create_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ssh_create_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ssh_create_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_web_create_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_web_create_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_get_user_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_get_user_file() missing 1 required positional argument: 'args'
+ERROR:root:execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_put_anon_file() missing 1 required positional argument: 'args'
+ERROR:root:type object 'attackerClass' has no attribute 'data'
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 157, in execute_ftp_login_anon_user
+    user_data= attackerClass.get_ftp_anon_user()#attackerClass.get_ftp_anon_user()
+  File "attackerScript.py", line 42, in get_ftp_anon_user
+    ftp_anon_user=attackerClass.data.get_ftp_anon_user()
+AttributeError: type object 'attackerClass' has no attribute 'data'
+ERROR:root:execute_ftp_login_normal_user() takes 0 positional arguments but 1 was given
+Traceback (most recent call last):
+  File "attackerScript.py", line 112, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+TypeError: execute_ftp_login_normal_user() takes 0 positional arguments but 1 was given
+ERROR:root:attack_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 155, in execute_ftp_login_anon_user
+    user_data= attackerClass.attack_ftp_anon_user()#attackerClass.attack_ftp_anon_user()
+TypeError: attack_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:attack_ftp_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 110, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 266, in execute_ftp_put_user_file
+    user_data =attackerClass.attack_ftp_user()
+TypeError: attack_ftp_user() missing 1 required positional argument: 'self'
+ERROR:root:attack_ftp_anon_user() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "attackerScript.py", line 111, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 156, in execute_ftp_login_anon_user
+    user_data= attackerClass.attack_ftp_anon_user()#attackerClass.attack_ftp_anon_user()
+TypeError: attack_ftp_anon_user() missing 1 required positional argument: 'self'
+ERROR:root:__init__() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 115, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 214, in execute_ftp_get_anon_file
+    user_data=attackerClass.attack_ftp_anon_user()
+  File "attackerScript.py", line 44, in attack_ftp_anon_user
+    ini = attackerClass()
+  File "attackerScript.py", line 27, in __init__
+    object.__init__(self)
+TypeError: __init__() takes 1 positional argument but 2 were given
+ERROR:root:__init__() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 115, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 303, in execute_ftp_execute_file
+    user_data =attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 38, in attack_ftp_user
+    ini = attackerClass()
+  File "attackerScript.py", line 27, in __init__
+    object.__init__(self)
+TypeError: __init__() takes 1 positional argument but 2 were given
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7ff680f7dcc0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.171']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3849
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 195, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7ff680f7dcc0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.171']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3849
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:maximum recursion depth exceeded
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 46, in get_mysql_connection
+    connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 949, in connect
+    self.autocommit(self.autocommit_mode)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 753, in autocommit
+    self._send_autocommit_mode()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 771, in _send_autocommit_mode
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 991, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1025, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "/usr/lib/python3.5/socket.py", line 570, in readinto
+    self._checkReadable()
+RecursionError: maximum recursion depth exceeded
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fb543a83e10>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.171']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3987
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 195, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fb543a83e10>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.171']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3987
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fb543a98128>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.152']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3988
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 169, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fb543a98128>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '146.64.182.152']
+searcher: None
+buffer (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): test1\r\n331 User test1 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3988
+child_fd: 7
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 115, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 555, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 115, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 555, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 115, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 555, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
