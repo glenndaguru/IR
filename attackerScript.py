@@ -845,13 +845,16 @@ class attackerClass(object):
 
 if __name__ == "__main__":
 	random_repetition=random.randint(1,5)
+	random_time=random.randint(1,10)
+	
+	#Random time generation of execution time random_time = 
 	print('Running '+str(random_repetition)+' times')
 	for i in range(0,random_repetition):
 		print('Iteration '+str(i))
 		object = attackerClass()
 		the_array=object.get_data()
 		object.generate_random_request(the_array)
-		time.sleep(5)
+		time.sleep(random_time)
 
 	print('====Execution Complete====')
 
