@@ -35,15 +35,17 @@ class DataAccess():
         connection = None
         try:
             # get database configuration from database.txt
-            '''text_file = open("database.txt", "r")
-            lines = re.split(',', text_file.read())
+            text_file = open("database.txt", "r")
+            #lines = re.split(',', text_file.read())
+            lines=text_file.read().split(',')
             hostname = lines[0]
             username = lines[1]
             password = lines[2]
             database = lines[3]#'127.0.0.1'
-            #connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
-            '''
-            connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
+            #print(database)
+            connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+
+            #connection = pymysql.connect(host='10.0.5.43', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)
             #connection = pymysql.connect(host='192.168.8.126', user='myuser', password='1234', database='ir_db',cursorclass=pymysql.cursors.DictCursor)#host=146.64.182.136
             #print('connected')
         except Exception as e:
