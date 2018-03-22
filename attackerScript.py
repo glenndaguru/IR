@@ -785,14 +785,14 @@ class attackerClass(object):
 			child.close()
 
 	@staticmethod
-	def hydra_web_user_login(ip):
+	def hydra_web_user_login(args):
 		'''
 		Start Hydra and find username and password for IP address
 		If username and password found kill hydra
 		Execute collect data method
 		'''
 
-		#ip = args["IP"]
+		ip = args["IP"]
 
 		try:
 			print("Hydra BruteForce On Webpage (User) Being Executed")
@@ -846,8 +846,7 @@ class attackerClass(object):
 if __name__ == "__main__":
 	random_repetition=random.randint(1,5)
 	random_time=random.randint(1,10)
-	
-	#Random time generation of execution time random_time = 
+
 	print('Running '+str(random_repetition)+' times')
 	for i in range(0,random_repetition):
 		print('Iteration '+str(i))
