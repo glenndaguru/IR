@@ -3606,3 +3606,179 @@ Traceback (most recent call last):
   File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.ProgrammingError: (1102, "Incorrect database name 'ir_db\n'")
+ERROR:root:name 'server_ip' is not defined
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 296, in record_transcation
+    insert=self.data.record_transcation(service_id, server_ip, action_id)
+NameError: name 'server_ip' is not defined
+ERROR:root:name 'server_ip' is not defined
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 296, in record_transcation
+    insert=self.data.record_transcation(service_id, server_ip, action_id)
+NameError: name 'server_ip' is not defined
+ERROR:root:name 'server_ip' is not defined
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 296, in record_transcation
+    insert=self.data.record_transcation(service_id, server_ip, action_id)
+NameError: name 'server_ip' is not defined
+ERROR:root:execute() takes from 2 to 3 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,service_id,server_id,action_id)
+TypeError: execute() takes from 2 to 3 positional arguments but 5 were given
+ERROR:root:execute() takes from 2 to 3 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,service_id,server_id,action_id)
+TypeError: execute() takes from 2 to 3 positional arguments but 5 were given
+ERROR:root:(1146, "Table 'ir_db.transcations' doesn't exist")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'ir_db.transcations' doesn't exist")
+ERROR:root:(1146, "Table 'ir_db.transcations' doesn't exist")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'ir_db.transcations' doesn't exist")
+ERROR:root:(1146, "Table 'ir_db.transcations' doesn't exist")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'ir_db.transcations' doesn't exist")
+ERROR:root:(1364, "Field 't_id' doesn't have a default value")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1364, "Field 't_id' doesn't have a default value")
+ERROR:root:(1364, "Field 't_id' doesn't have a default value")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1364, "Field 't_id' doesn't have a default value")
+ERROR:root:(1364, "Field 't_id' doesn't have a default value")
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 166, in record_transcation
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1364, "Field 't_id' doesn't have a default value")
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 170, in record_transcation
+    result = cursor.lastrowid()
+TypeError: 'int' object is not callable
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 170, in record_transcation
+    result = cursor.lastrowid()
+TypeError: 'int' object is not callable
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 170, in record_transcation
+    result = cursor.lastrowid()
+TypeError: 'int' object is not callable
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 170, in record_transcation
+    result = cursor.lastrowid()
+TypeError: 'int' object is not callable
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "/home/alex/Documents/IR/DataAccess.py", line 170, in record_transcation
+    result = cursor.lastrowid()
+TypeError: 'int' object is not callable

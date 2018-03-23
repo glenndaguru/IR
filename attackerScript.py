@@ -840,6 +840,38 @@ class attackerClass(object):
 
 		return my_dic
 
+	def record_transaction(self,args):
+		print('args count')
+		print(len(args))
+
+
+		self.data.record_transcation()
+
+
+
+		# for i in range(0,len(args)):
+		# 	s=args[i][0]
+        #
+		# 	print(s['IP'])
+        #
+		# 	self.data.record_transcation()
+        #
+		# 	if i==(len(args)-1):
+		# 		break
+
+
+		# service_id = args[0]['Service']
+		# server_id = args[0]['IP']
+		# action_id = args[0]['Method']
+
+		# print(service_id)
+		# print(server_id)
+		# print(action_id)
+
+		#self.data.record_transaction(args)
+
+		return True
+
 	"===================================================================DATA ACCESS METHODS========================================================================="
 
 
@@ -847,13 +879,18 @@ if __name__ == "__main__":
 	random_repetition=random.randint(1,5)
 	random_time=random.randint(1,10)
 
-	print('Running '+str(random_repetition)+' times')
-	for i in range(0,random_repetition):
-		print('Iteration '+str(i))
-		object = attackerClass()
-		the_array=object.get_data()
-		object.generate_random_request(the_array)
-		time.sleep(random_time)
+	object = attackerClass()
+	the_array = object.get_data()
+	object.record_transaction(the_array)
+
+	# print('Running '+str(random_repetition)+' times')
+	# for i in range(0,random_repetition):
+	# 	print('Iteration '+str(i))
+	# 	object = attackerClass()
+	# 	the_array=object.get_data()
+	# 	object.record_transaction(the_array)
+		#object.generate_random_request(the_array)
+		#time.sleep(random_time)
 
 	print('====Execution Complete====')
 

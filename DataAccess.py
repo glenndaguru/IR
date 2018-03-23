@@ -154,6 +154,30 @@ class DataAccess():
             log.exception(e)
         return self.ftp_anon_user_result
 
+    def record_transcation(self,service_id,server_id,action_id):
+        result=None
+        try:
+            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time) '
+            sql+="VALUES (%s,%s,%s,NOW()) "
+
+            connection = self.mysql_connection
+
+            with connection as cursor:
+                cursor.execute(sql,(service_id,server_id,action_id))
+
+                connection.commit()
+
+                # result = cursor.lastrowid()
+                #
+                # if result>0:
+                #     return True
+                # else:return False
+
+        except Exception as e:
+            print(str(e))
+            log.exception(e)
+
+
 class attacker(object):
     def __init__(self):
         #print("attacker class initiated")
@@ -228,7 +252,7 @@ class attacker(object):
                     action_count=action_count-1
                     index=random.randint(0,action_count)
                 else:index=0
-                return action_list[index]['method']
+                return action_list[index]#['method']
 
             for i in range(0,server_count):
                 servers_and_methods.append({'server':self.servers[i],'method':get_method()})
@@ -254,6 +278,87 @@ class attacker(object):
         i=random.randint(0,count)
 
         return users[i]
+
+    def record_transcation(self):
+
+        list = self.servers_and_methods
+        list_size=len(list)
+        # print('list count')
+        # print(list_size)
+        service = self.service
+
+        for i in range(0, list_size):
+            service_id = service['service_id']
+            server_id = list[i]['server']['server_id']
+            action_id = list[i]['method']['action_id']
+
+            #try:
+            insert=self.data.record_transcation(service_id,server_id ,action_id )
+            #insert = self.data.record_transcation(str(service_id), str(server_id), str(action_id))
+            # if insert:
+            #     pass
+            # else:print('Problem Recording Attack')
+            # except Exception as e:
+            #     print(e)
+            #     log.exception(e)
+
+            if i == (list_size - 1):
+                break
+
+    # def record_transcation(self):
+    #         # print('----------------')
+    #         # print(args)
+    #         # print('----------------')
+    #         # service_id = args[0]['']
+    #         # server_id = args[0]['']
+    #         # action_id = args[0]['']
+    #         #
+    #
+    #         list=self.servers_and_methods
+    #         service=self.service
+    #
+    #         for i in range(0, len(args)):
+    #             service_id = service['service_id']
+    #             server_id =list[i]['server']['server_id']
+    #             action_id =list[i]['method']['action_id']
+    #
+    #             print(list[i])  # [])
+    #
+    #             print('-------server---------')
+    #             print(service_id)
+    #             print(server_id)
+    #             print(action_id)
+    #
+    #             #print(list[0])  # [])
+    #             # print('-------server---------')
+    #             # print(list[0]['server'])#[])
+    #             # print('---------method-------')
+    #             # print(list[0]['method'])  # [])
+    #             # print('-------Servic---------')
+    #             # print(serv)
+    #
+    #
+    #
+    #             try:
+    #                 self.data.record_transcation(service_id,server_ip,action_id)
+    #             except Exception as e:
+    #                 print('Problem Recording Attack')
+    #                 print(e)
+    #                 log.exception(e)
+    #
+    #             if i == (len(args) - 1):
+    #                 break
+
+
+        # for i in range(0, len(args)):
+        #     s = args[i][0]
+        #
+        #     print(s['IP'])
+        #
+        #     self.data.record_transcation()
+        #
+        #     if i == (len(args) - 1):
+        #         break
 # att=attacker()
 # a=att.get_ftp_anon_user()
 # print(a)
