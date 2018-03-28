@@ -10,6 +10,9 @@ import random
 from DataAccess import DataAccess,attacker
 import os
 import subprocess
+from dateutil import parser
+import argparse
+import shlex
 
 log.basicConfig(filename='attacker.log',level=log.DEBUG)
 
@@ -830,7 +833,7 @@ class attackerClass(object):
 			servers=self.data.servers_and_methods
 
 			for i in range(0,count):
-				items=[{'Service':service['service_name'],'IP':servers[i]['server']['ip_addr'],'User':servers[i]['server']['username'],'Password':servers[i]['server']['password'],'Method':servers[i]['method']}]
+				items=[{'Service':service['service_name'],'IP':servers[i]['server']['ip_addr'],'User':servers[i]['server']['username'],'Password':servers[i]['server']['password'],'Method':servers[i]['method']['method']}]
 				my_dic[i]=items
 
 
@@ -840,57 +843,60 @@ class attackerClass(object):
 
 		return my_dic
 
-	def record_transaction(self,args):
-		print('args count')
-		print(len(args))
-
-
-		self.data.record_transcation()
-
-
-
-		# for i in range(0,len(args)):
-		# 	s=args[i][0]
-        #
-		# 	print(s['IP'])
-        #
-		# 	self.data.record_transcation()
-        #
-		# 	if i==(len(args)-1):
-		# 		break
-
-
-		# service_id = args[0]['Service']
-		# server_id = args[0]['IP']
-		# action_id = args[0]['Method']
-
-		# print(service_id)
-		# print(server_id)
-		# print(action_id)
-
-		#self.data.record_transaction(args)
+	def record_transaction(self,test_id):
+		self.data.record_transcation(test_id)
 
 		return True
 
 	"===================================================================DATA ACCESS METHODS========================================================================="
 
+	"===================================================================PING SCRIPT========================================================================="
+	@staticmethod	
+	def execute_ping(args):
+		'''
+		Start ping script
+		'''
+		ip = args["IP"]
+
+		try:
+
+			print("Executing PING script")
+			subprocess.call(shlex.split('/bin/bash ./machinePing.sh {}'.format(ip)))
+			print("Executed PING script Successfully")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pexpect.EOF as e:
+			print (str(e))
+			log.exception(e)
+
+	"===================================================================PING SCRIPT========================================================================="
+
+	"===================================================================INITIATE METHOD========================================================================="
+	def start_attack(self):
+		random_repetition=random.randint(1,5)
+		print('Running '+str(random_repetition)+' times')
+
+		#Getting Test ID
+		parse = argparse.ArgumentParser()
+		parse.add_argument("testID",help="Pass testID to script")
+		args = parse.parse_args()
+
+		for i in range(0,random_repetition):
+			print('Iteration '+str(i))
+			random_time=random.randint(100,300)
+			object = attackerClass()
+			the_array=object.get_data()
+			object.generate_random_request(the_array)
+			object.record_transaction(args.testID)
+			time.sleep(random_time)
+		print('====Execution Complete====')
+
+	"===================================================================INITIATE METHOD========================================================================="
+
 
 if __name__ == "__main__":
-	random_repetition=random.randint(1,5)
-	random_time=random.randint(1,10)
-
 	object = attackerClass()
-	the_array = object.get_data()
-	object.record_transaction(the_array)
-
-	# print('Running '+str(random_repetition)+' times')
-	# for i in range(0,random_repetition):
-	# 	print('Iteration '+str(i))
-	# 	object = attackerClass()
-	# 	the_array=object.get_data()
-	# 	object.record_transaction(the_array)
-		#object.generate_random_request(the_array)
-		#time.sleep(random_time)
-
-	print('====Execution Complete====')
-
+	object.start_attack()
