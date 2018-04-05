@@ -547,6 +547,69 @@ class attackerClass(object):
 		except pxssh.ExceptionPxssh as e:
 			print (str(e))
 			log.exception(e)
+
+	@staticmethod
+	def execute_ssh_upload_file(args):
+		'''
+		SSH directly into the machine using parameters received
+		Upload a file and remove the uploaded file
+		'''
+		ip = args["IP"]
+		user = args["User"]
+		password = args["Pass"]
+
+		upload_file = "scp usernames.txt {}@{}:.".format(user,ip)
+		remove_file = "ssh {}@{} 'rm ./usernames.txt'".format(user,ip)
+		child = pexpect.spawn(upload_file)
+		child1 = pexpect.spawn(remove_file)
+
+		try:
+
+				print("File Upload Being Executed")
+
+				i = child.expect(['assword:*', 'continue connecting (yes/no)?'])
+
+				if i == 0:
+					child.sendline(password)
+					child.expect(pexpect.EOF)
+
+				elif i == 1:
+					child.sendline('yes')
+					child.expect('assword:*')
+					child.sendline(password)
+					child.expect(pexpect.EOF)
+
+				print("File Uploaded Succesfully")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		try:
+
+				print("File Removal Being Executed")
+
+				i = child1.expect(['assword:*', 'continue connecting (yes/no)?'])
+
+				if i == 0:
+					child1.sendline(password)
+					child1.expect(pexpect.EOF)
+
+				elif i == 1:
+					child1.sendline('yes')
+					child1.expect('assword:*')
+					child1.sendline(password)
+					child1.expect(pexpect.EOF)
+
+				print("File Removed Succesfully")
+
+		except Exception as e:
+			print (str(e))
+			log.exception(e)
+
+		except pxssh.ExceptionPxssh as e:
+			print (str(e))
+			log.exception(e)
 	"===================================================================SSH METHODS========================================================================="
 	
 	"===================================================================WEB SERVER METHODS========================================================================="
@@ -900,3 +963,4 @@ class attackerClass(object):
 if __name__ == "__main__":
 	object = attackerClass()
 	object.start_attack()
+

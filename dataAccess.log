@@ -4009,3 +4009,151 @@ Traceback (most recent call last):
   File "attackerScript.py", line 831, in get_data
     count=len(self.data.servers_and_methods)
 AttributeError: 'attackerClass' object has no attribute 'data'
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.33' ([Errno 113] No route to host)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 46, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.33' ([Errno 113] No route to host)")
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 591, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 579, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7f82ede1e438>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@10.0.5.37:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 1
+flag_eof: True
+pid: 3407
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 572, in execute_ssh_upload_file
+    i = child.expect(['assword:*', 'continue connecting (yes/no)?'],timeout=5)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7f82ede1e438>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@10.0.5.37:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 1
+flag_eof: True
+pid: 3407
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 579, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 581, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 579, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:name 'print_info' is not defined
+Traceback (most recent call last):
+  File "attackerScript.py", line 578, in execute_ssh_upload_file
+    print_info(out)
+NameError: name 'print_info' is not defined
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 579, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
+ERROR:root:string argument without an encoding
+Traceback (most recent call last):
+  File "attackerScript.py", line 579, in execute_ssh_upload_file
+    if bytes('100%') in out:
+TypeError: string argument without an encoding
+ERROR:root:a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "attackerScript.py", line 588, in execute_ssh_upload_file
+    if '100%' in out:
+TypeError: a bytes-like object is required, not 'str'
