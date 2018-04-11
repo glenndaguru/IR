@@ -1,0 +1,15 @@
+[Unit]
+
+Description= MySQL Watcher
+
+[Service]
+
+WorkingDirectory=/var/log/
+
+ExecStart=/usr/bin/python3 mysql_bandwidth_monitor.py
+
+Restart=no
+
+[Install]
+
+WantedBy=multi-user.target
