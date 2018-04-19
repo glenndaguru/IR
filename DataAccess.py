@@ -208,6 +208,8 @@ class attacker(object):
                 service_id = self.data.get_service(2)
             elif service ==3:#>500 and service<=750:#Web Server
                service_id = self.data.get_service(3)
+            elif service ==4:#>500 and service<=750:#Web Server
+               service_id = self.data.get_service(4)
 
             checker=rep.check(service_id['service_id'])
 
@@ -254,8 +256,11 @@ class attacker(object):
                 else:index=0
                 return action_list[index]#['method']
 
-            for i in range(0,server_count):
-                servers_and_methods.append({'server':self.servers[i],'method':get_method()})
+            if server_count == 1:
+               servers_and_methods.append({'server':self.servers[0],'method':get_method()})
+            else:
+                for i in range(0,server_count):
+                    servers_and_methods.append({'server':self.servers[i],'method':get_method()})
 
 
         except Exception as e:
@@ -298,4 +303,64 @@ class attacker(object):
         except Exception as e:
             print(e)
             log.exception(e)
+
+class employees(object):
+    def __init__(self):
+        self.mysql_connection2 = self.get_mysql_connection2()
+        self.employee_list = None
+
+    def get_mysql_connection2(self): #mysql db connection
+        '''
+        Opens a new connection to the database, and returns the connection object to the caller.
+        '''
+        connection2 = None
+        try:
+            # get database configuration from database.txt
+            text_file = open("database2.txt", "r")
+            lines = re.split(',', text_file.read())
+            #lines=text_file.read().split(',')
+            hostname = lines[0]
+            username = lines[1]
+            password = lines[2]
+            database = lines[3]
+
+            connection2 = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+
+        except Exception as e:
+            print("Error: Could not connect to the database.\n")
+            print("Checka di Settings.\n")
+            print(str(e))
+            exit()
+
+        return connection2
+
+    def select_employees(self):
+        result=None
+        try:
+            sql='SELECT * FROM employees e, salaries s, dept_emp d where s.emp_no = e.emp_no'
+            connection = self.mysql_connection2
+
+            with connection as cursor:
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                self.employee_list=result
+
+        except Exception as e:
+            print(str(e))
+        return self.employee_list
+
+    def drop_table(self):
+        result=None
+        try:
+            sql="DROP DATABASE employees"
+
+            connection = self.mysql_connection2
+
+            with connection as cursor:
+                cursor.execute(sql)
+
+                connection.commit()
+
+        except Exception as e:
+            print(str(e))
 

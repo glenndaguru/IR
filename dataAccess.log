@@ -4157,3 +4157,1844 @@ Traceback (most recent call last):
   File "attackerScript.py", line 588, in execute_ssh_upload_file
     if '100%' in out:
 TypeError: a bytes-like object is required, not 'str'
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fd91a44abe0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 2698
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 198, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fd91a44abe0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 2698
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 203, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 203, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 203, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 203, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 203, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 200, in get_mysql_connection2
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 200, in get_mysql_connection2
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 200, in get_mysql_connection2
+    connection = pymysql.connect(host="10.0.5.31", user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 200, in get_mysql_connection2
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 200, in get_mysql_connection2
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 201, in get_mysql_connection2
+    connection = pymysql.connect(host="10.0.5.31", user="myplaypen", password="myplaypen2016", database="employees", cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 201, in get_mysql_connection2
+    connection = pymysql.connect(host="10.0.5.31", user="myplaypen", password="myplaypen2016", database="employees", cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 201, in get_mysql_connection2
+    connection2 = pymysql.connect(host="10.0.5.31", user="myplaypen", password="myplaypen2016", database="employees", cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:(1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+Traceback (most recent call last):
+  File "DataAccess.py", line 201, in get_mysql_connection2
+    connection2 = pymysql.connect(host="10.0.5.31", user="myplaypen", password="myplaypen2016", database="employees", cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'myplaypen'@'10.0.5.10' (using password: YES)")
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:password refused
+Traceback (most recent call last):
+  File "attackerScript.py", line 425, in execute_ssh_sudo
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 310, in login
+    raise ExceptionPxssh('password refused')
+pexpect.pxssh.ExceptionPxssh: password refused
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 122, in call_class_method
+    the_method = getattr(attackerClass,method)(values)
+  File "attackerScript.py", line 628, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:password refused
+Traceback (most recent call last):
+  File "attackerScript.py", line 385, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 310, in login
+    raise ExceptionPxssh('password refused')
+pexpect.pxssh.ExceptionPxssh: password refused
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fd9475a5e10>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3716
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 179, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fd9475a5e10>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3716
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 46, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 46, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 46, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.21' ([Errno 113] No route to host)")
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f707c63c160>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3185
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 248, in execute_ftp_get_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f707c63c160>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3185
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    service_id = self.data.get_service(4)
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    try:
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:local variable 'servers_and_methods' referenced before assignment
+Traceback (most recent call last):
+  File "attackerScript.py", line 133, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 266, in execute_ftp_login_normal_user
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 46, in attack_ftp_user
+    ini = attackerClass()
+  File "attackerScript.py", line 31, in __init__
+    self.data = attacker()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 187, in __init__
+    self.servers_and_methods=self.get_action()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 264, in get_action
+    print (str(e))
+UnboundLocalError: local variable 'servers_and_methods' referenced before assignment
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 212, in get_service
+    service_id = self.data.get_service(4)
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 241, in get_action
+    try:
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:local variable 'servers_and_methods' referenced before assignment
+Traceback (most recent call last):
+  File "attackerScript.py", line 133, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 359, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 46, in attack_ftp_user
+    ini = attackerClass()
+  File "attackerScript.py", line 31, in __init__
+    self.data = attacker()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 187, in __init__
+    self.servers_and_methods=self.get_action()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 264, in get_action
+    print (str(e))
+UnboundLocalError: local variable 'servers_and_methods' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 67, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 68, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 214, in get_service
+    service_id = self.data.get_service(4)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 74, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 244, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 67, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 68, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 214, in get_service
+    service_id = self.data.get_service(4)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 74, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 244, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 67, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 68, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 214, in get_service
+    service_id = self.data.get_service(2)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 74, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 244, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fbb7aca4d30>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3406
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 248, in execute_ftp_get_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fbb7aca4d30>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3406
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fac47a57c50>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3450
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 219, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fac47a57c50>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3450
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fac47a57b38>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3455
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 248, in execute_ftp_get_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fac47a57b38>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3455
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fac47a57c50>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.29']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b': \r\nConnection to 10.0.5.29 closed by remote host.\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 255
+flag_eof: True
+pid: 3493
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 401, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 291, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7fac47a57c50>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', '-q', '-l', 'ubuntu', '10.0.5.29']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b': \r\nConnection to 10.0.5.29 closed by remote host.\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 255
+flag_eof: True
+pid: 3493
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f0774b87dd8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.29']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b': \r\nConnection to 10.0.5.29 closed by remote host.\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 3694
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 400, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 291, in login
+    i = self.expect(["(?i)are you sure you want to continue connecting", original_prompt, "(?i)(?:password)|(?:passphrase for key)", "(?i)permission denied", "(?i)terminal type", TIMEOUT])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pxssh.pxssh object at 0x7f0774b87dd8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'ubuntu', '10.0.5.29']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b': \r\nConnection to 10.0.5.29 closed by remote host.\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 3694
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:0
+Traceback (most recent call last):
+  File "attackerScript.py", line 133, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 644, in execute_web_login
+    ip = args[0]["IP"]
+KeyError: 0
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fb00>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@10.0.5.29:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b'ssh_exchange_identification: read: Connection reset by peer\r\r\nlost connection\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 1
+flag_eof: True
+pid: 3799
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 591, in execute_ssh_upload_file
+    i = child.expect(['assword:*', 'continue connecting (yes/no)?'])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fb00>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@10.0.5.29:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b'ssh_exchange_identification: read: Connection reset by peer\r\r\nlost connection\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 1
+flag_eof: True
+pid: 3799
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fda0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', 'ubuntu@10.0.5.29', 'rm ./usernames.txt']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b'ssh_exchange_identification: read: Connection reset by peer\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 255
+flag_eof: True
+pid: 3801
+child_fd: 11
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 144, in read_nonblocking
+    s = os.read(self.child_fd, size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 455, in read_nonblocking
+    return super(spawn, self).read_nonblocking(size)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 149, in read_nonblocking
+    raise EOF('End Of File (EOF). Exception style platform.')
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 613, in execute_ssh_upload_file
+    i = child1.expect(['assword:*', 'continue connecting (yes/no)?'])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 102, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 49, in eof
+    raise EOF(msg)
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fda0>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', 'ubuntu@10.0.5.29', 'rm ./usernames.txt']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b'ssh_exchange_identification: read: Connection reset by peer\r\r\n'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: 255
+flag_eof: True
+pid: 3801
+child_fd: 11
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fe48>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3806
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 192, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710fe48>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3806
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710f518>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.39']
+searcher: None
+buffer (last 100 chars): b'Connected to 10.0.5.39.\r\n421 Service not available, remote server has closed connection\r\nftp> '
+before (last 100 chars): b'Connected to 10.0.5.39.\r\n421 Service not available, remote server has closed connection\r\nftp> '
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3810
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 335, in execute_ftp_execute_file
+    child.expect(":")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fc9c710f518>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.39']
+searcher: None
+buffer (last 100 chars): b'Connected to 10.0.5.39.\r\n421 Service not available, remote server has closed connection\r\nftp> '
+before (last 100 chars): b'Connected to 10.0.5.39.\r\n421 Service not available, remote server has closed connection\r\nftp> '
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 3810
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:[Errno 2] No such file or directory: '/bin/python3'
+Traceback (most recent call last):
+  File "attackerScript.py", line 1043, in execute_email_script
+    subprocess.call(shlex.split('/bin/python3 sendemail.py {} {} {} {}'.format(msg_sender,msg_receiver,msg_attack,msg_subject)))
+  File "/usr/lib/python3.5/subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: '/bin/python3'
+ERROR:root:[Errno 2] No such file or directory: '/bin/python'
+Traceback (most recent call last):
+  File "attackerScript.py", line 1043, in execute_email_script
+    subprocess.call(shlex.split('/bin/python sendemail.py {} {} {} {}'.format(msg_sender,msg_receiver,msg_attack,msg_subject)))
+  File "/usr/lib/python3.5/subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: '/bin/python'
+ERROR:root:name 'execute_email_script' is not defined
+Traceback (most recent call last):
+  File "attackerScript.py", line 135, in call_class_method
+    the_email = getattr(attackerClass,execute_email_script)(email_values)
+NameError: name 'execute_email_script' is not defined
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f40b8372fd0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 4902
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 195, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f40b8372fd0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): anonymous\r\n331 User anonymous OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 4902
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f5e862e1e80>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5059
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 222, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f5e862e1e80>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5059
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fe3f27ead30>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5185
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 222, in execute_ftp_put_anon_file
+    child.expect(">")
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fe3f27ead30>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '10.0.5.36']
+searcher: None
+buffer (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+before (last 100 chars): b'root): ftp\r\n331 User ftp OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5185
+child_fd: 8
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 67, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 68, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 214, in get_service
+    service_id = self.data.get_service(1)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 74, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 244, in get_action
+    service_id=self.service['service_id']
+TypeError: 'NoneType' object is not subscriptable
