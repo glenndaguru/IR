@@ -2,29 +2,21 @@
 # Year: 2018
 
 import smtplib
-import argparse
-from dateutil import parser
+from datetime import datetime
 
-#IP Address For Kali Machine
-SERVER = "10.0.5.45"
 
-#Capture Arguments From Terminal (Sender,Recepient, Message and Subject)
-parse = argparse.ArgumentParser()
-parse.add_argument("sender",help="Enter sender email")
-parse.add_argument("recepient",help="Enter recepient(s) email")
-parse.add_argument("message",help="Enter message")
-parse.add_argument("subject",help="Enter Subject")
-args = parse.parse_args()
+#IP Address For Email Server
+SERVER = "192.168.10.21"
 
 #Sender And Recepient(s)
-FROM = args.sender
-TO = [args.recepient]
+FROM = "alert@coj.co.za"
+TO = ["responder1@coj.co.za","responder2@coj.co.za","responder3@coj.co.za","responder4@coj.co.za"]
 
 #Subject Assignment
-SUBJECT = args.subject
+SUBJECT = "Start Incident Response"
 
 #Message Assignment
-TEXT = args.message
+TEXT = "Commence incident reponse activity \nDate/Time: "+datetime.now().strftime('%Y-%m-%d% %H:%M:%S')
 
 #Joining of All Components
 message = """\

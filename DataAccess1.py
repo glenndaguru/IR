@@ -157,7 +157,7 @@ class DataAccess():
     def record_transcation(self,service_id,server_id,action_id,test_id):
         result=None
         try:
-            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time,test_id) '
+            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time,test_date) '
             sql+="VALUES (%s,%s,%s,NOW(),%s) "
 
             connection = self.mysql_connection
@@ -238,62 +238,59 @@ class attacker(object):
         check size of random action id against length of action list
         if size is the same we -1 from the id to avoid index range exception
         '''
-        self.get_service()  #run method that will select the service to attack
-        service_id=self.service['service_id'] #get the id of the select to attack
+        #try:
+        #    self.get_service()
+        #    service_id=self.service['service_id']
 
-        print('service',service_id)
+        #    action_list=self.data.get_action(service_id)
 
-        action_list=self.data.get_action(service_id)#gets a list of actions/attacks based on service selected
-        action_count=len(action_list)#counts the number of actyions/attacks in the list
+        #    servers_and_methods=[]
 
-        servers_and_methods=[]#list that will store the server and its methods
-        methods=[]#list that will store the methods of a service
+        #    server_count=len(self.servers)
 
-        server_count=len(self.servers)#count the number of servers for a specific service e.g number of services for ssh service
+        #    def get_method():
+        #        action_count=len(action_list)
+        #        if action_count>1:
+        #           action_count=action_count-1
+        #            index=random.randint(0,action_count)
+        #        else:index=0
+        #       return action_list[index]#['method']
 
-        random_actions=[]
+        #    if server_count == 1:
 
-        print('server count',server_count)
-        print('method count', action_count)
-        try:
-            if server_count == 1:#if there is only one server a service
-                print('if')
-                while len(methods)<action_count:
-                     print('while')
-                     random_action=random.randint(0,action_count-1)
-
-                     if random_action in random_actions:
-                          print('small if')
-                          pass
-                     else:
-                          random_actions.append(random_action)
-                          methods.append(action_list[random_action])
-
-                servers_and_methods.append({'server':self.servers[0],'method':methods})#store server and methods as index in servers_and_methods list
+        #       servers_and_methods.append({'server':self.servers[0],'method':get_method()})
+        #    else:
+        #        for i in range(0,server_count):
+        #            servers_and_methods.append({'server':self.servers[i],'method':get_method()})
 
 
-            else:
-                print('else')
-                for i in range(0,server_count):
-                    while len(methods)<action_count:
-                        random_action=random.randint(0,action_count-1)
+        #except Exception as e:
+        #    print (str(e))
+        #   log.exception(e) 
+        self.get_service()
+        service_id=self.service['service_id']
 
-                        if random_action in random_actions:
-                            pass
-                        else:
-                            random_actions.append(random_action)
-                            methods.append(action_list[random_action])
+        action_list=self.data.get_action(service_id)
 
-                    servers_and_methods.append({'server':self.servers[i],'method':methods})
+        servers_and_methods=[]
 
-                    methods=[]
-                    random_actions=[]
+        server_count=len(self.servers)
+
+        def get_method():
+            action_count=len(action_list)
+            if action_count>1:
+               action_count=action_count-1
+               index=random.randint(0,action_count)
+            else:index=0
+               return action_list[index]
+        if server_count == 1:
+	    servers_and_methods.append({'server':self.servers[0],'method':get_method()})
+        else:
+             for i in range(0,server_count):
+                 servers_and_methods.append({'server':self.servers[i],'method':get_method()})
 
 
-            self.servers_and_methods=servers_and_methods
-        except Exception as e:
-            print(e)
-            log.exception(e)
+	self.servers_and_methods=servers_and_methods
 
         return servers_and_methods
 
@@ -339,8 +336,8 @@ class employees(object):
     def get_mysql_connection2(self): #mysql db connection
         '''
         Opens a new connection to the database, and returns the connection object to the caller.
-        connection2 = None
         '''
+        connection2 = None
         try:
             # get database configuration from database.txt
             text_file = open("database2.txt", "r")
@@ -391,7 +388,9 @@ class employees(object):
         except Exception as e:
             print(str(e))
 
-#att=attacker()
+att=attacker()
 
-#list=att.get_action()
-#print(list)
+list=att.get_action()
+
+
+print(list)

@@ -6441,3 +6441,212 @@ searchwindowsize: None
 delaybeforesend: 0.05
 delayafterclose: 0.1
 delayafterterminate: 0.1
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 273, in execute_ftp_login_normal_user
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 302, in execute_ftp_put_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f279cebd2b0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '192.168.10.32']
+buffer (last 100 chars): b'attacker): ftpuser2\r\n331 User ftpuser2 OK. Password required\r\nPassword:'
+before (last 100 chars): b'attacker): ftpuser2\r\n331 User ftpuser2 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 10255
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile(b'>')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 111, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/pty_spawn.py", line 482, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 200, in execute_ftp_login_anon_user
+    child.expect(">")
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/spawnbase.py", line 341, in expect
+    timeout, searchwindowsize, async_)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/spawnbase.py", line 369, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 119, in expect_loop
+    return self.timeout(e)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 82, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f279cebd2b0>
+command: /usr/bin/ftp
+args: ['/usr/bin/ftp', '-p', '192.168.10.32']
+buffer (last 100 chars): b'attacker): ftpuser2\r\n331 User ftpuser2 OK. Password required\r\nPassword:'
+before (last 100 chars): b'attacker): ftpuser2\r\n331 User ftpuser2 OK. Password required\r\nPassword:'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 10255
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile(b'>')
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 366, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 334, in execute_ftp_execute_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 334, in execute_ftp_execute_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 366, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 140, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 302, in execute_ftp_put_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 50, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 303, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str
+ERROR:root:list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 323, in record_transcation
+    action_id = list[i]['method']['action_id']
+TypeError: list indices must be integers or slices, not str

