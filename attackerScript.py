@@ -32,7 +32,7 @@ class attackerClass(object):
         self.db_array = ""
         self.method = ""
         self.data = attacker()
-        self.emp_data = employees()
+        #self.emp_data = employees()
 
     # attackerClass.__init__(self)
     # data=attacker()
@@ -90,38 +90,48 @@ class attackerClass(object):
                 current_service = val[0].get("Service")
                 current_user = val[0].get("User")
                 current_pass = val[0].get("Password")
-                if key==0:
-                        print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,                                                         current_service))
-                        attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                else:
-                    for nextElement in range(key + 1, len(service_array)):
-                        next_ip = service_array[nextElement][0]["IP"]
-                        next_method = service_array[nextElement][0]["Method"]
-                        next_service = service_array[nextElement][0]["Service"]
 
-                        if current_ip == next_ip and current_service == next_service and current_method == next_method:
-                            print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method, current_ip,
-                                                                                             current_service))
+                service_id=val[0].get('service_id')
+                server_id=val[0].get('server_id')
+                action_id=val[0].get('action_id')
 
-                        elif current_ip == next_ip and current_service == next_service and current_method != next_method:
-                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                       current_service))
-                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                            break
+                print('service_id',service_id)
+                print('server_id',server_id)
+                print('action_id',action_id)
 
-                        elif current_ip != next_ip and current_service == next_service and current_method == next_method:
-                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                       current_service))
-                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                            break
 
-                        elif current_ip != next_ip and current_service == next_service and current_method != next_method:
-                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                       current_service))
-                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                            break
-                        else:
-                            print("None")
+                # if key==0:
+                #         print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,                                                         current_service))
+                #         attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                # else:
+                #     for nextElement in range(key + 1, len(service_array)):
+                #         next_ip = service_array[nextElement][0]["IP"]
+                #         next_method = service_array[nextElement][0]["Method"]
+                #         next_service = service_array[nextElement][0]["Service"]
+                #
+                #         if current_ip == next_ip and current_service == next_service and current_method == next_method:
+                #             print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method, current_ip,
+                #                                                                              current_service))
+                #
+                #         elif current_ip == next_ip and current_service == next_service and current_method != next_method:
+                #             print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                #                                                                        current_service))
+                #             attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                #             break
+                #
+                #         elif current_ip != next_ip and current_service == next_service and current_method == next_method:
+                #             print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                #                                                                        current_service))
+                #             attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                #             break
+                #
+                #         elif current_ip != next_ip and current_service == next_service and current_method != next_method:
+                #             print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                #                                                                        current_service))
+                #             attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                #             break
+                #         else:
+                #             print("None")
 
 
 
@@ -934,8 +944,8 @@ class attackerClass(object):
 
             if count == 1:
                 for i in range(0,action_count-1):
-                    item = [{'Service': service['service_name'], 'IP': servers[0]['server']['ip_addr'],
-                    'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],
+                    item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[0]['server']['server_id'] ,'IP': servers[0]['server']['ip_addr'],
+                    'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],'method_id':servers[0]['method'][i]['action_id'],
                     'Method': servers[0]['method'][i]['method']}]
 
                     my_dic[i] = item
@@ -951,8 +961,8 @@ class attackerClass(object):
 
                     for j in range(0,action_count-1):
                         #print('child for')
-                        item = [{'Service': service['service_name'], 'IP': servers[i]['server']['ip_addr'],
-                        'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],
+                        item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[i]['server']['server_id'] ,'IP': servers[i]['server']['ip_addr'],
+                        'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],'method_id':servers[i]['method'][j]['action_id'],
                         'Method': servers[i]['method'][j]['method']}]
 
                         item_list.append(item)
@@ -1076,13 +1086,13 @@ class attackerClass(object):
     def start_attack(self):
        # random_repetition = random.randint(1, 5)
        # print('Running ' + str(random_repetition) + ' times')
-        current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        random_time=random.randint(10,30)
+        #current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        #random_time=random.randint(10,30)
         object=attackerClass()
         the_array=object.get_data()
         object.generate_random_request(the_array)
-        object.record_transaction(current_date)
-        time.sleep(random_time)
+        #object.record_transaction(current_date)
+        #time.sleep(random_time)
         print('====COmplete====')
 
 
@@ -1102,6 +1112,6 @@ class attackerClass(object):
 
 if __name__ == "__main__":
     object = attackerClass()
-    object.start_attack()
+    #object.start_attack()
     #o=object.get_data()
     #print(o)

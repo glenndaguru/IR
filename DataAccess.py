@@ -331,6 +331,9 @@ class attacker(object):
             print(e)
             log.exception(e)
 
+'''
+
+'''
 class employees(object):
     def __init__(self):
         self.mysql_connection2 = self.get_mysql_connection2()
