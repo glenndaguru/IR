@@ -157,13 +157,13 @@ class DataAccess():
     def record_transcation(self,service_id,server_id,action_id,test_id):
         result=None
         try:
-            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time,test_id) '
-            sql+="VALUES (%s,%s,%s,NOW(),%s) "
+            sql='INSERT INTO transactions(service_id,server_id,action_id,test_date) '
+            sql+="VALUES (%s,%s,%s,NOW(),NOW()) "
 
             connection = self.mysql_connection
 
             with connection as cursor:
-                cursor.execute(sql,(service_id,server_id,action_id,test_id))
+                cursor.execute(sql,(service_id,server_id,action_id))
 
                 connection.commit()
 
@@ -241,7 +241,7 @@ class attacker(object):
         self.get_service()  #run method that will select the service to attack
         service_id=self.service['service_id'] #get the id of the select to attack
 
-        print('service',service_id)
+        #print('service',service_id)
 
         action_list=self.data.get_action(service_id)#gets a list of actions/attacks based on service selected
         action_count=len(action_list)#counts the number of actyions/attacks in the list
@@ -253,17 +253,17 @@ class attacker(object):
 
         random_actions=[]
 
-        print('server count',server_count)
-        print('method count', action_count)
+        #print('server count',server_count)
+        #print('method count', action_count)
         try:
             if server_count == 1:#if there is only one server a service
-                print('if')
+                #print('if')
                 while len(methods)<action_count:
-                     print('while')
+                     #print('while')
                      random_action=random.randint(0,action_count-1)
 
                      if random_action in random_actions:
-                          print('small if')
+                          #print('small if')
                           pass
                      else:
                           random_actions.append(random_action)
@@ -273,7 +273,7 @@ class attacker(object):
 
 
             else:
-                print('else')
+                #print('else')
                 for i in range(0,server_count):
                     while len(methods)<action_count:
                         random_action=random.randint(0,action_count-1)
@@ -314,7 +314,7 @@ class attacker(object):
     def record_transcation(self,server_id,service_id,action_id):
 
         try:
-            insert=self.data.record_transcation(service_id,server_id ,action_id)
+            self.data.record_transcation(service_id,server_id ,action_id)
         except Exception as e:
             print(e)
             log.exception(e)
@@ -355,7 +355,7 @@ class employees(object):
     def select_employees(self):
         result=None
         try:
-            sql='SELECT * FROM employees e, salaries s, dept_emp d where s.emp_no = e.emp_no'
+            sql='SELECT * FROM employees e, salaries s, dept_emp d where s.emp_no = e.emp_no LIMIT 100'
             connection = self.mysql_connection2
 
             with connection as cursor:
