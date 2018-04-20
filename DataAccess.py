@@ -241,6 +241,8 @@ class attacker(object):
         self.get_service()  #run method that will select the service to attack
         service_id=self.service['service_id'] #get the id of the select to attack
 
+        print('service',service_id)
+
         action_list=self.data.get_action(service_id)#gets a list of actions/attacks based on service selected
         action_count=len(action_list)#counts the number of actyions/attacks in the list
 
@@ -251,38 +253,47 @@ class attacker(object):
 
         random_actions=[]
 
-        if server_count == 1:#if there is only one server a service
-
-            while len(methods)<=action_count:
-                 random_action=random.randint(0,action_count-1)
-
-                 if random_action in random_actions:
-                      pass
-                 else:
-                      random_actions.append(random_action)
-                      methods.append(action_list[random_action])
-
-            servers_and_methods.append({'server':self.servers[0],'method':methods})#store server and methods as index in servers_and_methods list
-
-
-        else:
-            for i in range(0,server_count):
+        print('server count',server_count)
+        print('method count', action_count)
+        try:
+            if server_count == 1:#if there is only one server a service
+                print('if')
                 while len(methods)<action_count:
-                    random_action=random.randint(0,action_count-1)
+                     print('while')
+                     random_action=random.randint(0,action_count-1)
 
-                    if random_action in random_actions:
-                        pass
-                    else:
-                        random_actions.append(random_action)
-                        methods.append(action_list[random_action])
+                     if random_action in random_actions:
+                          print('small if')
+                          pass
+                     else:
+                          random_actions.append(random_action)
+                          methods.append(action_list[random_action])
 
-                servers_and_methods.append({'server':self.servers[i],'method':methods})
-
-                methods=[]
-                random_actions=[]
+                servers_and_methods.append({'server':self.servers[0],'method':methods})#store server and methods as index in servers_and_methods list
 
 
-        self.servers_and_methods=servers_and_methods
+            else:
+                print('else')
+                for i in range(0,server_count):
+                    while len(methods)<action_count:
+                        random_action=random.randint(0,action_count-1)
+
+                        if random_action in random_actions:
+                            pass
+                        else:
+                            random_actions.append(random_action)
+                            methods.append(action_list[random_action])
+
+                    servers_and_methods.append({'server':self.servers[i],'method':methods})
+
+                    methods=[]
+                    random_actions=[]
+
+
+            self.servers_and_methods=servers_and_methods
+        except Exception as e:
+            print(e)
+            log.exception(e)
 
         return servers_and_methods
 
@@ -319,7 +330,6 @@ class attacker(object):
         except Exception as e:
             print(e)
             log.exception(e)
-            print()
 class employees(object):
     def __init__(self):
         self.mysql_connection2 = self.get_mysql_connection2()
@@ -380,7 +390,7 @@ class employees(object):
         except Exception as e:
             print(str(e))
 
-att=attacker()
+#att=attacker()
 
 #list=att.get_action()
 #print(list)

@@ -7,10 +7,12 @@ import logging as log
 import inspect
 import json
 import random
+
+import mysql_bandwidth_monitor
 from DataAccess import DataAccess, attacker, employees
 import os
 import subprocess
-from dateutil import parser
+#from dateutil import parser
 import argparse
 import shlex
 
@@ -928,20 +930,36 @@ class attackerClass(object):
             service = self.data.service
             servers = self.data.servers_and_methods
 
+            serversList=servers[0]
+            action_count=len(serversList['method'])
+
             if count == 1:
-                items = [{'Service': service['service_name'], 'IP': servers[0]['server']['ip_addr'],
-                'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],
-                'Method': servers[0]['method']['method']}]
-                my_dic[0] = items
+                for i in range(0,action_count-1):
+                    item = [{'Service': service['service_name'], 'IP': servers[0]['server']['ip_addr'],
+                    'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],
+                    'Method': servers[0]['method'][i]['method']}]
+
+                    my_dic[i] = item
+
 
             else:
-
+                #print('else')
+                item_list=[]
                 for i in range(0, count):
-                    items = [{'Service': service['service_name'], 'IP': servers[i]['server']['ip_addr'],
-                    'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],
-                    'Method': servers[i]['method']['method']}]
-                    my_dic[i] = items
+                    #print('main for')
+                    #print(servers[i]['server']['ip_addr'])
 
+
+                    for j in range(0,action_count-1):
+                        #print('child for')
+                        item = [{'Service': service['service_name'], 'IP': servers[i]['server']['ip_addr'],
+                        'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],
+                        'Method': servers[i]['method'][j]['method']}]
+
+                        item_list.append(item)
+
+                for i in range(0,len(item_list)):
+                    my_dic[i]=item_list[i]
 
         except Exception as e:
             print (str(e))
@@ -1087,3 +1105,5 @@ class attackerClass(object):
 if __name__ == "__main__":
     object = attackerClass()
     object.start_attack()
+    #o=object.get_data()
+    #print(o)
