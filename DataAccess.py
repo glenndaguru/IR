@@ -311,22 +311,10 @@ class attacker(object):
 
         return users[i]
 
-    def record_transcation(self,test_id):
-        list = self.servers_and_methods
-        list_size=len(list)
-        service = self.service
+    def record_transcation(self,server_id,service_id,action_id):
 
         try:
-            for i in range(0, list_size):
-                service_id = service['service_id']
-                server_id = list[i]['server']['server_id']
-                action_id = list[i]['method']['action_id']
-                the_id = str(test_id)
-                insert=self.data.record_transcation(service_id,server_id ,action_id,the_id)
-
-                if i == (list_size - 1):
-                    break
-
+            insert=self.data.record_transcation(service_id,server_id ,action_id)
         except Exception as e:
             print(e)
             log.exception(e)
