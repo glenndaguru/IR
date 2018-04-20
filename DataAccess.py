@@ -238,34 +238,50 @@ class attacker(object):
         check size of random action id against length of action list
         if size is the same we -1 from the id to avoid index range exception
         '''
-        try:
-            self.get_service()
-            service_id=self.service['service_id']
+        self.get_service()  #run method that will select the service to attack
+        service_id=self.service['service_id'] #get the id of the select to attack
 
-            action_list=self.data.get_action(service_id)
+        action_list=self.data.get_action(service_id)#gets a list of actions/attacks based on service selected
+        action_count=len(action_list)#counts the number of actyions/attacks in the list
 
-            servers_and_methods=[]
+        servers_and_methods=[]#list that will store the server and its methods
+        methods=[]#list that will store the methods of a service
 
-            server_count=len(self.servers)
+        server_count=len(self.servers)#count the number of servers for a specific service e.g number of services for ssh service
 
-            def get_method():
-                action_count=len(action_list)
-                if action_count>1:
-                    action_count=action_count-1
-                    index=random.randint(0,action_count)
-                else:index=0
-                return action_list[index]#['method']
+        random_actions=[]
 
-            if server_count == 1:
-               servers_and_methods.append({'server':self.servers[0],'method':get_method()})
-            else:
-                for i in range(0,server_count):
-                    servers_and_methods.append({'server':self.servers[i],'method':get_method()})
+        if server_count == 1:#if there is only one server a service
+
+            while len(methods)<=action_count:
+                 random_action=random.randint(0,action_count-1)
+
+                 if random_action in random_actions:
+                      pass
+                 else:
+                      random_actions.append(random_action)
+                      methods.append(action_list[random_action])
+
+            servers_and_methods.append({'server':self.servers[0],'method':methods})#store server and methods as index in servers_and_methods list
 
 
-        except Exception as e:
-            print (str(e))
-            log.exception(e)
+        else:
+            for i in range(0,server_count):
+                while len(methods)<action_count:
+                    random_action=random.randint(0,action_count-1)
+
+                    if random_action in random_actions:
+                        pass
+                    else:
+                        random_actions.append(random_action)
+                        methods.append(action_list[random_action])
+
+                servers_and_methods.append({'server':self.servers[i],'method':methods})
+
+                methods=[]
+                random_actions=[]
+
+
         self.servers_and_methods=servers_and_methods
 
         return servers_and_methods
@@ -303,7 +319,7 @@ class attacker(object):
         except Exception as e:
             print(e)
             log.exception(e)
-
+            print()
 class employees(object):
     def __init__(self):
         self.mysql_connection2 = self.get_mysql_connection2()
@@ -312,8 +328,8 @@ class employees(object):
     def get_mysql_connection2(self): #mysql db connection
         '''
         Opens a new connection to the database, and returns the connection object to the caller.
-        '''
         connection2 = None
+        '''
         try:
             # get database configuration from database.txt
             text_file = open("database2.txt", "r")
@@ -364,3 +380,7 @@ class employees(object):
         except Exception as e:
             print(str(e))
 
+att=attacker()
+
+#list=att.get_action()
+#print(list)

@@ -87,35 +87,38 @@ class attackerClass(object):
                 current_service = val[0].get("Service")
                 current_user = val[0].get("User")
                 current_pass = val[0].get("Password")
-
-                for nextElement in range(key + 1, len(service_array)):
-                    next_ip = service_array[nextElement][0]["IP"]
-                    next_method = service_array[nextElement][0]["Method"]
-                    next_service = service_array[nextElement][0]["Service"]
-
-                    if current_ip == next_ip and current_service == next_service and current_method == next_method:
-                        print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method, current_ip,
-                                                                                         current_service))
-
-                    elif current_ip == next_ip and current_service == next_service and current_method != next_method:
-                        print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                   current_service))
+                if key==0:
+                        print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,                                                         current_service))
                         attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                        break
+                else:
+                    for nextElement in range(key + 1, len(service_array)):
+                        next_ip = service_array[nextElement][0]["IP"]
+                        next_method = service_array[nextElement][0]["Method"]
+                        next_service = service_array[nextElement][0]["Service"]
 
-                    elif current_ip != next_ip and current_service == next_service and current_method == next_method:
-                        print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                   current_service))
-                        attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                        break
+                        if current_ip == next_ip and current_service == next_service and current_method == next_method:
+                            print("Repeating Method: {} On Server: {} Service: {} \n".format(current_method, current_ip,
+                                                                                             current_service))
 
-                    elif current_ip != next_ip and current_service == next_service and current_method != next_method:
-                        print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
-                                                                                   current_service))
-                        attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
-                        break
-                    else:
-                        print("None")
+                        elif current_ip == next_ip and current_service == next_service and current_method != next_method:
+                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                                                                                       current_service))
+                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                            break
+
+                        elif current_ip != next_ip and current_service == next_service and current_method == next_method:
+                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                                                                                       current_service))
+                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                            break
+
+                        elif current_ip != next_ip and current_service == next_service and current_method != next_method:
+                            print("Executing: {} On Server: {}  Service: {} \n".format(current_method, current_ip,
+                                                                                       current_service))
+                            attackerClass.call_class_method(current_method, current_ip, current_user, current_pass)
+                            break
+                        else:
+                            print("None")
 
 
 
