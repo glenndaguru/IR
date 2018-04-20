@@ -5,6 +5,21 @@ import logging as log
 
 log.basicConfig(filename='dataAccess.log',level=log.DEBUG)
 
+class repetition_checker():
+    def __init__(self):
+        #print("repetition class initiated")
+        self.old_val=0
+
+    def check(self,value):
+        #print("check")
+        #print(value)
+        if self.old_val==value:
+            self.old_val=value
+            return True
+        return False
+
+rep=repetition_checker()
+
 
 class DataAccess():
     def __init__(self):
@@ -55,7 +70,7 @@ class DataAccess():
         except Exception as e:
             print(str(e))
             log.exception(e)
-
+            
         return result
 
     def count_services(self):
@@ -77,7 +92,7 @@ class DataAccess():
             with connection as cursor:
                 cursor.execute(sql)
                 result = cursor.fetchall()
-
+                
         except Exception as e:
             print(str(e))
             log.exception(e)
@@ -142,13 +157,13 @@ class DataAccess():
     def record_transcation(self,service_id,server_id,action_id,test_id):
         result=None
         try:
-            sql='INSERT INTO transactions(service_id,server_id,action_id,test_date) '
-            sql+="VALUES (%s,%s,%s,NOW(),NOW()) "
+            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time,test_date) '
+            sql+="VALUES (%s,%s,%s,NOW(),%s) "
 
             connection = self.mysql_connection
 
             with connection as cursor:
-                cursor.execute(sql,(service_id,server_id,action_id))
+                cursor.execute(sql,(service_id,server_id,action_id,test_id))
 
                 connection.commit()
 
@@ -162,21 +177,6 @@ class DataAccess():
             print(str(e))
             log.exception(e)
 
-
-class repetition_checker():
-    def __init__(self):
-        #print("repetition class initiated")
-        self.history=[]
-
-    def check(self,value):
-        #print("check")
-        #print(value)
-        if value in self.history:
-            return True
-        elif value not in self.history:
-            return False
-
-rep=repetition_checker()
 
 class attacker(object):
     def __init__(self):
@@ -215,6 +215,8 @@ class attacker(object):
 
             if checker==False:#checking if the service was just selected
 
+                rep.old_val=service_id['service_id']
+
                 self.service=service_id
 
                 servers=self.data.get_servers(service_id['service_id'])
@@ -236,62 +238,59 @@ class attacker(object):
         check size of random action id against length of action list
         if size is the same we -1 from the id to avoid index range exception
         '''
-        self.get_service()  #run method that will select the service to attack
-        service_id=self.service['service_id'] #get the id of the select to attack
+        #try:
+        #    self.get_service()
+        #    service_id=self.service['service_id']
 
-        #print('service',service_id)
+        #    action_list=self.data.get_action(service_id)
 
-        action_list=self.data.get_action(service_id)#gets a list of actions/attacks based on service selected
-        action_count=len(action_list)#counts the number of actyions/attacks in the list
+        #    servers_and_methods=[]
 
-        servers_and_methods=[]#list that will store the server and its methods
-        methods=[]#list that will store the methods of a service
+        #    server_count=len(self.servers)
 
-        server_count=len(self.servers)#count the number of servers for a specific service e.g number of services for ssh service
+        #    def get_method():
+        #        action_count=len(action_list)
+        #        if action_count>1:
+        #           action_count=action_count-1
+        #            index=random.randint(0,action_count)
+        #        else:index=0
+        #       return action_list[index]#['method']
 
-        random_actions=[]
+        #    if server_count == 1:
 
-        #print('server count',server_count)
-        #print('method count', action_count)
-        try:
-            if server_count == 1:#if there is only one server a service
-                #print('if')
-                while len(methods)<action_count:
-                     #print('while')
-                     random_action=random.randint(0,action_count-1)
-
-                     if random_action in random_actions:
-                          #print('small if')
-                          pass
-                     else:
-                          random_actions.append(random_action)
-                          methods.append(action_list[random_action])
-
-                servers_and_methods.append({'server':self.servers[0],'method':methods})#store server and methods as index in servers_and_methods list
+        #       servers_and_methods.append({'server':self.servers[0],'method':get_method()})
+        #    else:
+        #        for i in range(0,server_count):
+        #            servers_and_methods.append({'server':self.servers[i],'method':get_method()})
 
 
-            else:
-                #print('else')
-                for i in range(0,server_count):
-                    while len(methods)<action_count:
-                        random_action=random.randint(0,action_count-1)
+        #except Exception as e:
+        #    print (str(e))
+        #   log.exception(e) 
+        self.get_service()
+        service_id=self.service['service_id']
 
-                        if random_action in random_actions:
-                            pass
-                        else:
-                            random_actions.append(random_action)
-                            methods.append(action_list[random_action])
+        action_list=self.data.get_action(service_id)
 
-                    servers_and_methods.append({'server':self.servers[i],'method':methods})
+        servers_and_methods=[]
 
-                    methods=[]
-                    random_actions=[]
+        server_count=len(self.servers)
+
+        def get_method():
+            action_count=len(action_list)
+            if action_count>1:
+               action_count=action_count-1
+               index=random.randint(0,action_count)
+            else:index=0
+               return action_list[index]
+        if server_count == 1:
+	    servers_and_methods.append({'server':self.servers[0],'method':get_method()})
+        else:
+             for i in range(0,server_count):
+                 servers_and_methods.append({'server':self.servers[i],'method':get_method()})
 
 
-            self.servers_and_methods=servers_and_methods
-        except Exception as e:
-            print(e)
-            log.exception(e)
+	self.servers_and_methods=servers_and_methods
 
         return servers_and_methods
 
@@ -309,50 +308,25 @@ class attacker(object):
 
         return users[i]
 
-    def record_transcation(self,server_id,service_id,action_id):
+    def record_transcation(self,test_id):
+        list = self.servers_and_methods
+        list_size=len(list)
+        service = self.service
 
         try:
-            self.data.record_transcation(service_id,server_id ,action_id)
+            for i in range(0, list_size):
+                service_id = service['service_id']
+                server_id = list[i]['server']['server_id']
+                action_id = list[i]['method']['action_id']
+                the_id = str(test_id)
+                insert=self.data.record_transcation(service_id,server_id ,action_id,the_id)
+
+                if i == (list_size - 1):
+                    break
+
         except Exception as e:
             print(e)
             log.exception(e)
-
-class attackList():
-    def __init__(self):
-        self.attList=[]
-    def append_list(self,list):
-        self.attList.extend(list)
-
-    def get_list(self):
-        l=[]
-        list_size=len(self.attList)
-        random_indexes=[]
-
-        while len(random_indexes)<list_size:
-            random_index=random.randint(0,list_size-1)
-            if random_index in random_indexes:
-                pass
-            else:
-                l.append(self.attList[random_indexes])
-                random_indexes.append(random_index)
-        return  l
-
-class builder():
-    def __init__(self):
-        self.attList=attackList()
-        self.data=DataAccess()
-
-    def build(self):
-        attackerObj=attacker()
-        service_count=self.data.service_count
-        print('service count', service_count)
-        for i in range(0,service_count):
-
-            list=attackerObj.get_action()
-            print('==========list')
-            print(list)
-            self.attList.append_list(list)
-
 
 class employees(object):
     def __init__(self):
@@ -362,8 +336,8 @@ class employees(object):
     def get_mysql_connection2(self): #mysql db connection
         '''
         Opens a new connection to the database, and returns the connection object to the caller.
-        connection2 = None
         '''
+        connection2 = None
         try:
             # get database configuration from database.txt
             text_file = open("database2.txt", "r")
@@ -387,7 +361,7 @@ class employees(object):
     def select_employees(self):
         result=None
         try:
-            sql='SELECT * FROM employees e, salaries s, dept_emp d where s.emp_no = e.emp_no LIMIT 100'
+            sql='SELECT * FROM employees e, salaries s, dept_emp d where s.emp_no = e.emp_no'
             connection = self.mysql_connection2
 
             with connection as cursor:
@@ -414,22 +388,9 @@ class employees(object):
         except Exception as e:
             print(str(e))
 
+att=attacker()
+
+list=att.get_action()
 
 
-
-b=builder()
-b.build()
-list=b.attList.attList
-for i in list:
-    print(i)
-
-
-l=b.attList.get_list()
-for i in l:
-    print(i)
-# att=attacker()
-#
-# list=att.get_action()
-# print(list)
-
-
+print(list)
