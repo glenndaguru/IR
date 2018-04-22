@@ -1,3 +1,5 @@
+from cgi import valid_boundary
+
 import pymysql
 import re
 import random
@@ -84,6 +86,7 @@ class DataAccess():
         return result
 
     def get_action(self,service_id):
+        result=None
         try:
             sql='SELECT a.action_id, a.method FROM action a '
             #sql+='INNER JOIN service s ON '
@@ -139,10 +142,10 @@ class DataAccess():
             log.exception(e)
         return self.ftp_anon_user_result
 
-    def record_transcation(self,service_id,server_id,action_id,test_id):
+    def record_transcation(self,service_id,server_id,action_id):
         result=None
         try:
-            sql='INSERT INTO transactions(service_id,server_id,action_id,test_date) '
+            sql='INSERT INTO transactions(service_id,server_id,action_id,test_date,) '
             sql+="VALUES (%s,%s,%s,NOW(),NOW()) "
 
             connection = self.mysql_connection
@@ -167,14 +170,30 @@ class repetition_checker():
     def __init__(self):
         #print("repetition class initiated")
         self.history=[]
+        self.checks=0
+
+    def add(self,val):
+        self.checks=self.checks+ val
 
     def check(self,value):
-        #print("check")
-        #print(value)
-        if value in self.history:
+        #print("checking in service")
+        #print('check no',self.checks)
+        #print(self.history)
+
+        if value in self.history: #if service selected is
+            #print('serivce used ')
+            #print(self.history)
+            #print('true')
+
             return True
+
         elif value not in self.history:
+            self.history.append(value)
+            #print('getting data for ', value)
+            #print('false')
+            self.add(1)
             return False
+        #print('returning nothing')
 
 rep=repetition_checker()
 
@@ -222,7 +241,7 @@ class attacker(object):
 
                 return service_id
             else:
-                #print('service exists, getting another')
+                print('service exists, getting another')
                 self.get_service()
 
         except Exception as e:
@@ -316,7 +335,7 @@ class attacker(object):
         except Exception as e:
             print(e)
             log.exception(e)
-
+''''
 class attackList():
     def __init__(self):
         self.attList=[]
@@ -333,26 +352,126 @@ class attackList():
             if random_index in random_indexes:
                 pass
             else:
-                l.append(self.attList[random_indexes])
+                l.append(self.attList[random_index])
                 random_indexes.append(random_index)
         return  l
-
+'''
 class builder():
     def __init__(self):
-        self.attList=attackList()
-        self.data=DataAccess()
+        #self.attList=attackList()# instantiate class attackList class
+        self.attDic={}
+        self.data=DataAccess()# instantiate class data access class
+        #self.attacker=attacker()
 
     def build(self):
-        attackerObj=attacker()
+        #attackerObj=attacker()
         service_count=self.data.service_count
-        print('service count', service_count)
+
+        #print('service count', service_count)
+        dic_index=0
         for i in range(0,service_count):
+            attackerObj=attacker()
 
-            list=attackerObj.get_action()
-            print('==========list')
-            print(list)
-            self.attList.append_list(list)
+            list=attackerObj.servers_and_methods
 
+            #print('==========list')
+            #print('service',attackerObj.service )
+            #print(list)
+            try:
+                my_dic = {}
+
+                count = len(attackerObj.servers_and_methods)
+                service = attackerObj.service
+                servers = attackerObj.servers_and_methods
+
+                serversList=servers[0]
+                action_count=len(serversList['method'])
+
+                if count == 1:
+                    for i in range(0,action_count):
+                        item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[0]['server']['server_id'] ,'IP': servers[0]['server']['ip_addr'],
+                        'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],'method_id':servers[0]['method'][i]['action_id'],
+                        'Method': servers[0]['method'][i]['method']}]
+
+                        #my_dic[i] = item
+                        self.attDic[dic_index]=item
+                        dic_index=dic_index+1
+
+
+
+                else:
+                    #print('else')
+                    item_list=[]
+                    for i in range(0, count):
+                        #print('main for')
+                        #print(servers[i]['server']['ip_addr'])
+
+                        for j in range(0,action_count-1):
+                            #print('child for')
+                            item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[i]['server']['server_id'] ,'IP': servers[i]['server']['ip_addr'],
+                            'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],'method_id':servers[i]['method'][j]['action_id'],
+                            'Method': servers[i]['method'][j]['method']}]
+
+                            item_list.append(item)
+
+                    for i in range(0,len(item_list)):
+                        #my_dic[i]=item_list[i]
+                        self.attDic[dic_index]=item_list[i]
+                        dic_index=dic_index+1
+
+                #self.attList.append_list(my_dic)
+
+
+            except Exception as e:
+                print (str(e))
+                log.exception(e)
+
+        # my_dic=self.attDic
+        # for i in range(0,len(my_dic)):
+        #     print(i)
+        #     print(my_dic[i])
+        #     print('\n')
+
+    def get_list(self):
+        list={}
+        list_size=len(self.attDic)
+        #print('list size',list_size)
+        random_indexes=[]
+
+        count=0
+        while len(random_indexes)<list_size:
+            random_index=random.randint(0,list_size-1)
+            if random_index in random_indexes:
+                pass
+            else:
+                list[count]=self.attDic[random_index]
+                random_indexes.append(random_index)
+                count=count+1
+
+
+        #print(self.attDic)
+
+        #print(len(list))
+        #
+        # for i in range(0,len(list)):
+        #     print(i)
+        #     print(list[i])
+        #     print('\n')
+        return list
+
+    def get_ftp_user(self):
+        users=self.data.get_ftp_users()
+        count=len(users)-1
+        i=random.randint(0,count)
+
+        return users[i]
+
+    def get_ftp_anon_user(self):
+        users=self.data.get_ftp_anon_users()
+        count=len(users)-1
+        i=random.randint(0,count)
+
+        return users[i]
 
 class employees(object):
     def __init__(self):
@@ -415,21 +534,25 @@ class employees(object):
             print(str(e))
 
 
+# b=builder()
+# b.build()
+# b.get_list()
+#print('\n')
 
+# list=b.attList.attList
+# for key,val in list:
+#     print(val)
+#     print('\n')
 
-b=builder()
-b.build()
-list=b.attList.attList
-for i in list:
-    print(i)
+# attList=attackList()
+# l=attList.get_list()
+# print('size of l',len(l))
+# for i in range(0,len(l)):
+#     print(l[i])
 
-
-l=b.attList.get_list()
-for i in l:
-    print(i)
-# att=attacker()
+#att=attacker()
 #
-# list=att.get_action()
+# list=att.servers_and_methods
 # print(list)
 
 

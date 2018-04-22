@@ -20,3 +20,971 @@ Traceback (most recent call last):
   File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
     raise exc
 pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '146.64.182.136.10.41' ([Errno -2] Name or service not known)")
+ERROR:root:(2003, "Can't connect to MySQL server on '10.0.5.25' ([Errno 111] Connection refused)")
+Traceback (most recent call last):
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 920, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 711, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 702, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 31, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 967, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.0.5.25' ([Errno 111] Connection refused)")
+ERROR:root:'int' object is not callable
+Traceback (most recent call last):
+  File "DataAccess.py", line 219, in get_service
+    checker=rep.check(service_id['service_id'])
+TypeError: 'int' object is not callable
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 225, in get_service
+    service_id = self.data.get_service(4)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:(0, '')
+Traceback (most recent call last):
+  File "DataAccess.py", line 98, in get_action
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 859, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 99, in get_action
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 785, in rollback
+    self._execute_command(COMMAND.COM_QUERY, "ROLLBACK")
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 219, in get_service
+    service_id= self.data.get_service(1)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:(0, '')
+Traceback (most recent call last):
+  File "DataAccess.py", line 98, in get_action
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 859, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 99, in get_action
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 785, in rollback
+    self._execute_command(COMMAND.COM_QUERY, "ROLLBACK")
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 221, in get_service
+    service_id= self.data.get_service(1)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:(0, '')
+Traceback (most recent call last):
+  File "DataAccess.py", line 98, in get_action
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 859, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 99, in get_action
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 785, in rollback
+    self._execute_command(COMMAND.COM_QUERY, "ROLLBACK")
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 229, in get_service
+    service_id = self.data.get_service(3)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:(0, '')
+Traceback (most recent call last):
+  File "DataAccess.py", line 99, in get_action
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 859, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 100, in get_action
+    result = cursor.fetchall()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 785, in rollback
+    self._execute_command(COMMAND.COM_QUERY, "ROLLBACK")
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in _execute_command
+    raise err.InterfaceError("(0, '')")
+pymysql.err.InterfaceError: (0, '')
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 229, in get_service
+    service_id = self.data.get_service(3)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 225, in get_service
+    service_id= self.data.get_service(1)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 229, in get_service
+    service_id = self.data.get_service(3)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "DataAccess.py", line 231, in get_service
+    service_id = self.data.get_service(4)
+  File "DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 231, in get_service
+    service_id = self.data.get_service(4)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:Packet sequence number wrong - got 3 expected 1
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 54, in get_service
+    cursor.execute(sql)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1356, in read
+    self._read_result_packet(first_packet)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1421, in _read_result_packet
+    self._get_descriptions()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1492, in _get_descriptions
+    field = self.connection._read_packet(FieldDescriptorPacket)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1017, in _read_packet
+    packet = packet_type(buff, self.encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 399, in __init__
+    self._parse_field_descriptor(encoding)
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 406, in _parse_field_descriptor
+    self.catalog = self.read_length_coded_string()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 343, in read_length_coded_string
+    length = self.read_length_encoded_integer()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 324, in read_length_encoded_integer
+    c = self.read_uint8()
+RecursionError: maximum recursion depth exceeded
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 55, in get_service
+    result = cursor.fetchone()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 846, in __exit__
+    self.rollback()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 786, in rollback
+    self._read_ok_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 760, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/alex/.local/lib/python3.5/site-packages/pymysql/connections.py", line 1005, in _read_packet
+    % (packet_number, self._next_seq_id))
+pymysql.err.InternalError: Packet sequence number wrong - got 3 expected 1
+ERROR:root:local variable 'result' referenced before assignment
+Traceback (most recent call last):
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 225, in get_service
+    service_id= self.data.get_service(1)
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 61, in get_service
+    return result
+UnboundLocalError: local variable 'result' referenced before assignment
+ERROR:root:'builder' object has no attribute 'get_ftp_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 347, in execute_ftp_execute_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_user'
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 461, in execute_ssh_sudo
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 421, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:'builder' object has no attribute 'get_ftp_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 379, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_user'
+ERROR:root:'builder' object has no attribute 'get_ftp_anon_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 258, in execute_ftp_get_anon_file
+    user_data = attackerClass.attack_ftp_anon_user()
+  File "attackerScript.py", line 57, in attack_ftp_anon_user
+    ftp_anon_user = ini.data.get_ftp_anon_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_anon_user'
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 558, in execute_ssh_execute_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:'builder' object has no attribute 'get_ftp_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 315, in execute_ftp_put_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_user'
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 809, in execute_web_execute_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 712, in execute_web_sudo_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:'builder' object has no attribute 'get_ftp_anon_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 230, in execute_ftp_put_anon_file
+    user_data = attackerClass.attack_ftp_anon_user()
+  File "attackerScript.py", line 57, in attack_ftp_anon_user
+    ftp_anon_user = ini.data.get_ftp_anon_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_anon_user'
+ERROR:root:'builder' object has no attribute 'get_ftp_anon_user'
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 204, in execute_ftp_login_anon_user
+    user_data = attackerClass.attack_ftp_anon_user()  # attackerClass.attack_ftp_anon_user()
+  File "attackerScript.py", line 57, in attack_ftp_anon_user
+    ftp_anon_user = ini.data.get_ftp_anon_user()
+AttributeError: 'builder' object has no attribute 'get_ftp_anon_user'
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 379, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 465, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 558, in execute_ssh_execute_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 347, in execute_ftp_execute_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 465, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 461, in execute_ssh_sudo
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 421, in execute_ssh_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 510, in execute_ssh_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f75c3337d68>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@192.168.10.33:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5242
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 612, in execute_ssh_upload_file
+    i = child.expect(['assword:*', 'continue connecting (yes/no)?'])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f75c3337d68>
+command: /usr/bin/scp
+args: ['/usr/bin/scp', 'usernames.txt', 'ubuntu@192.168.10.33:.']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5242
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f75c33377b8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', 'ubuntu@192.168.10.33', 'rm ./usernames.txt']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5243
+child_fd: 11
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 97, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 452, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 634, in execute_ssh_upload_file
+    i = child1.expect(['assword:*', 'continue connecting (yes/no)?'])
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 315, in expect
+    timeout, searchwindowsize, async)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 339, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 104, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 68, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f75c33377b8>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', 'ubuntu@192.168.10.33', 'rm ./usernames.txt']
+searcher: None
+buffer (last 100 chars): b''
+before (last 100 chars): b''
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 5243
+child_fd: 11
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 315, in execute_ftp_put_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/home/alex/Documents/GitRepo/IR/DataAccess.py", line 465, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 712, in execute_web_sudo_login
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 761, in execute_web_create_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+Traceback (most recent call last):
+  File "attackerScript.py", line 809, in execute_web_execute_file
+    ssh_handle.login(ip, user, password)
+  File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
+    self.before, self.PROMPT,))
+pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').

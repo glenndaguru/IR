@@ -10,7 +10,7 @@ import random
 from datetime import datetime
 
 import mysql_bandwidth_monitor
-from DataAccess import DataAccess, attacker, employees
+from DataAccess import builder, DataAccess, employees
 import os
 import subprocess
 #from dateutil import parser
@@ -31,7 +31,8 @@ class attackerClass(object):
         self.command = ""
         self.db_array = ""
         self.method = ""
-        self.data = attacker()
+        self.data = builder()
+        self.dataAccess=DataAccess()
         #self.emp_data = employees()
 
     # attackerClass.__init__(self)
@@ -148,15 +149,15 @@ class attackerClass(object):
             print()
             print("Method: " + method + " Executed")
             print("================================")
-            att=attackerClass
-            att.record_trans(server_id,service_id,action_id)
+            #att=attackerClass
+            #att.record_trans(server_id,service_id,action_id)
 
         except Exception as e:
             print (str(e))
             log.exception(e)
 
     def record_trans(self,server_id,service_id,action_id):
-        self.data.record_transaction(server_id,service_id,action_id)
+        self.dataAccess.record_transaction(service_id,server_id,action_id)
 
     "===================================================================CLASS METHODS========================================================="
 
@@ -1090,13 +1091,15 @@ class attackerClass(object):
         #current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         random_time=random.randint(10,30)
         object=attackerClass()
-        the_array=object.get_data()
+        self.data.build()
+        the_array=self.data.get_list()
+        #print(the_array)
         object.generate_random_request(the_array)
         #object.record_transaction(current_date)
         time.sleep(random_time)
         print('====COmplete====')
-	
-	"Call this method to send email after attack has completed execute_email_script()"
+
+        "Call this method to send email after attack has completed execute_email_script()"
 
         '''
         for i in range(0, random_repetition):
