@@ -110,7 +110,7 @@ class DataAccess():
         try:
             sql='SELECT user_id,username,password '
             sql+="FROM ftp_users "
-            sql+="WHERE username LIKE 't%' "
+            sql+="WHERE username LIKE 'ftpuser%' "
             #result=self.query_exec(sql)
             connection = self.mysql_connection
 
@@ -129,7 +129,7 @@ class DataAccess():
         try:
             sql='SELECT user_id,username,password '
             sql+="FROM ftp_users "
-            sql+="WHERE username LIKE 'f%' OR username LIKE 'a%' "
+            sql+="WHERE username LIKE 'ftp' OR username LIKE 'a%' "
             connection = self.mysql_connection
 
             with connection as cursor:
@@ -142,10 +142,10 @@ class DataAccess():
             log.exception(e)
         return self.ftp_anon_user_result
 
-    def record_transcation(self,service_id,server_id,action_id):
+    def record_transaction(self,service_id,server_id,action_id):
         result=None
         try:
-            sql='INSERT INTO transactions(service_id,server_id,action_id,test_date,) '
+            sql='INSERT INTO transactions(service_id,server_id,action_id,date_time,test_date) '
             sql+="VALUES (%s,%s,%s,NOW(),NOW()) "
 
             connection = self.mysql_connection
@@ -389,7 +389,7 @@ class builder():
 
                 if count == 1:
                     for i in range(0,action_count):
-                        item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[0]['server']['server_id'] ,'IP': servers[0]['server']['ip_addr'],
+                        item = [{'Service': service['service_name'],'service_id':service['service_id'],'server_id':servers[0]['server']['server_id'] ,'IP': servers[0]['server']['ip_addr'],
                         'User': servers[0]['server']['username'], 'Password': servers[0]['server']['password'],'method_id':servers[0]['method'][i]['action_id'],
                         'Method': servers[0]['method'][i]['method']}]
 
@@ -408,7 +408,7 @@ class builder():
 
                         for j in range(0,action_count-1):
                             #print('child for')
-                            item = [{'Service': service['service_name'],'service_id':service['service_name'],'server_id':servers[i]['server']['server_id'] ,'IP': servers[i]['server']['ip_addr'],
+                            item = [{'Service': service['service_name'],'service_id':service['service_id'],'server_id':servers[i]['server']['server_id'] ,'IP': servers[i]['server']['ip_addr'],
                             'User': servers[i]['server']['username'], 'Password': servers[i]['server']['password'],'method_id':servers[i]['method'][j]['action_id'],
                             'Method': servers[i]['method'][j]['method']}]
 

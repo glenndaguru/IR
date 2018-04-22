@@ -94,7 +94,7 @@ class attackerClass(object):
 
                 service_id=val[0].get('service_id')
                 server_id=val[0].get('server_id')
-                action_id=val[0].get('action_id')
+                action_id=val[0].get('method_id')
 
 
 
@@ -149,8 +149,9 @@ class attackerClass(object):
             print()
             print("Method: " + method + " Executed")
             print("================================")
-            #att=attackerClass
-            #att.record_trans(server_id,service_id,action_id)
+            att=attackerClass()
+            att.record_trans(server_id,service_id,action_id)
+            
 
         except Exception as e:
             print (str(e))

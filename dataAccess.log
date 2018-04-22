@@ -988,3 +988,750 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/pexpect/pxssh.py", line 341, in login
     self.before, self.PROMPT,))
 pexpect.pxssh.ExceptionPxssh: could not set shell prompt (received: b"unset PROMPT_COMMAND\r\nPS1='[PEXPECT]\\$ '\r\nset prompt='[PEXPECT]\\$ '\r\n", expected: '\\[PEXPECT\\][\\$\\#] ').
+ERROR:root:(1045, "Access denied for user 'ir_user'@'192.168.10.51' (using password: YES)")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 33, in get_mysql_connection
+    connection = pymysql.connect(host=hostname, user=username, password=password, database=database, cursorclass=pymysql.cursors.DictCursor)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 699, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 936, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1156, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'ir_user'@'192.168.10.51' (using password: YES)")
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 315, in execute_ftp_put_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 465, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:Timeout exceeded.
+<pexpect.pxssh.pxssh object at 0x7f4ca5a2b588>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'sshserver', '192.168.10.33']
+buffer (last 100 chars): b'\nexit\r\nexit\r\n[sudo] password for sshserver: \r\n\x1b]0;root@sshserver: ~\x07root@sshserver:~# '
+before (last 100 chars): b'\nexit\r\nexit\r\n[sudo] password for sshserver: \r\n\x1b]0;root@sshserver: ~\x07root@sshserver:~# '
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 19781
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: EOF
+    1: re.compile(b'(?i)there are stopped jobs')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 111, in expect_loop
+    incoming = spawn.read_nonblocking(spawn.maxread, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/pty_spawn.py", line 482, in read_nonblocking
+    raise TIMEOUT('Timeout exceeded.')
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "attackerScript.py", line 533, in execute_ssh_create_file
+    ssh_handle.logout()
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/pxssh.py", line 435, in logout
+    index = self.expect([EOF, "(?i)there are stopped jobs"])
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/spawnbase.py", line 341, in expect
+    timeout, searchwindowsize, async_)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/spawnbase.py", line 369, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 119, in expect_loop
+    return self.timeout(e)
+  File "/usr/local/lib/python3.5/dist-packages/pexpect/expect.py", line 82, in timeout
+    raise TIMEOUT(msg)
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pxssh.pxssh object at 0x7f4ca5a2b588>
+command: /usr/bin/ssh
+args: ['/usr/bin/ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-q', '-l', 'sshserver', '192.168.10.33']
+buffer (last 100 chars): b'\nexit\r\nexit\r\n[sudo] password for sshserver: \r\n\x1b]0;root@sshserver: ~\x07root@sshserver:~# '
+before (last 100 chars): b'\nexit\r\nexit\r\n[sudo] password for sshserver: \r\n\x1b]0;root@sshserver: ~\x07root@sshserver:~# '
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 19781
+child_fd: 10
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: None
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: EOF
+    1: re.compile(b'(?i)there are stopped jobs')
+ERROR:root:empty range for randrange() (0,0, 0)
+Traceback (most recent call last):
+  File "attackerScript.py", line 148, in call_class_method
+    the_method = getattr(attackerClass, method)(values)
+  File "attackerScript.py", line 379, in execute_ftp_get_user_file
+    user_data = attackerClass.attack_ftp_user()
+  File "attackerScript.py", line 51, in attack_ftp_user
+    user = ini.data.get_ftp_user()
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 465, in get_ftp_user
+    i=random.randint(0,count)
+  File "/usr/lib/python3.5/random.py", line 218, in randint
+    return self.randrange(a, b+1)
+  File "/usr/lib/python3.5/random.py", line 196, in randrange
+    raise ValueError("empty range for randrange() (%d,%d, %d)" % (istart, istop, width))
+ValueError: empty range for randrange() (0,0, 0)
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:record_trans() missing 1 required positional argument: 'action_id'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+TypeError: record_trans() missing 1 required positional argument: 'action_id'
+ERROR:root:'str' object has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans('',server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'str' object has no attribute 'dataAccess'
+ERROR:root:'str' object has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans('',server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'str' object has no attribute 'dataAccess'
+ERROR:root:type object 'attackerClass' has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: type object 'attackerClass' has no attribute 'dataAccess'
+ERROR:root:type object 'attackerClass' has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: type object 'attackerClass' has no attribute 'dataAccess'
+ERROR:root:type object 'attackerClass' has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: type object 'attackerClass' has no attribute 'dataAccess'
+ERROR:root:type object 'attackerClass' has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: type object 'attackerClass' has no attribute 'dataAccess'
+ERROR:root:type object 'attackerClass' has no attribute 'dataAccess'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att.dataAccess,server_id,service_id,action_id)
+AttributeError: type object 'attackerClass' has no attribute 'dataAccess'
+ERROR:root:record_trans() takes 4 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+TypeError: record_trans() takes 4 positional arguments but 5 were given
+ERROR:root:record_trans() takes 4 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+TypeError: record_trans() takes 4 positional arguments but 5 were given
+ERROR:root:record_trans() takes 4 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+TypeError: record_trans() takes 4 positional arguments but 5 were given
+ERROR:root:record_trans() takes 4 positional arguments but 5 were given
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(att,server_id,service_id,action_id)
+TypeError: record_trans() takes 4 positional arguments but 5 were given
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:'DataAccess' object has no attribute 'record_transaction'
+Traceback (most recent call last):
+  File "attackerScript.py", line 153, in call_class_method
+    att.record_trans(server_id,service_id,action_id)
+  File "attackerScript.py", line 161, in record_trans
+    self.dataAccess.record_transaction(service_id,server_id,action_id)
+AttributeError: 'DataAccess' object has no attribute 'record_transaction'
+ERROR:root:(1366, "Incorrect integer value: 'SSH Server' for column 'service_id' at row 1")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect integer value: 'SSH Server' for column 'service_id' at row 1")
+ERROR:root:(1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+ERROR:root:(1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+ERROR:root:(1366, "Incorrect integer value: 'MySQL Server' for column 'service_id' at row 1")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect integer value: 'MySQL Server' for column 'service_id' at row 1")
+ERROR:root:(1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect integer value: 'FTP Server' for column 'service_id' at row 1")
+ERROR:root:(1048, "Column 'action_id' cannot be null")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'action_id' cannot be null")
+ERROR:root:(1048, "Column 'action_id' cannot be null")
+Traceback (most recent call last):
+  File "/var/log/sensor/attacker/IR/DataAccess.py", line 154, in record_transaction
+    cursor.execute(sql,(service_id,server_id,action_id))
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'action_id' cannot be null")
